@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Rice of Babel - Venus Territory</title>
+        <meta name="description" content="Good things come to those who stay!" />
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+        <meta content="utf-8" http-equiv="encoding" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link href="/style.css?nocache=6" rel="stylesheet" />
+        <script src="/layout.js?nochache=22"></script>
+    </head>
+    <body>
+        <!-- The next line is a skip-to-content link for keyboard users. Do not remove it! -->
+        <a href="#content" id="skip-to-content-link">Skip to content</a>
+        <div class="layout">
+            <noscript>Please enable JavaScript to view this website!</noscript>
+            <main id="content">
+                <section id="serif">
+                    <h1>The Rice of Babel: The Absurdity of Linux Theming</h1>
+                    <h5 id="toc"><a href="#toc">Table of Contents</a></h5>
+                    <ul class="square">
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#toolkit">Toolkit Exploration</a></li>
+                        <li><a href="#rice-babel">The Rice of Babel</a></li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                        <li><a href="#updates">Updates</a></li>
+                    </ul>
+                    <p>
+                        <b>25/09/2025 Update:</b> I added a new section right at the end of the post to discuss new findings that left this article somewhat outdated, be it for better or worse. Please, check it before making any conclusions.
+                    </p>
+                    <p>
+                        <b>ATTENTION:</b> This article's objective is not attacking any group or individual. Don't shoot the
+                        messenger, my current role is highlighting the fundamental problems I noticed with Linux theming and I will
+                        provide some theoretical ideal solutions to fix this themeing salad. Keep in mind that I am just a user, I
+                        don't have the skills to implement what I will be talking about here.
+                    </p>
+                    <h5 id="intro"><a href="#intro">Introduction</a></h5>
+                    <p>
+                        Are you familiar with the ancient story of The Tower of Babel? If not, please go watch <a
+                            href="https://www.youtube.com/watch?v=gHJzbmmdZFg" target="_blank">The Tower of Babel (But Biblically
+                        Accurate)</a>.<br>
+                        Either a tale of an angry God, striking down on mankind's attempts at surpassing God and nature, or a story
+                        about humans seeking unity and harmony to praise God, all symbolized by that old Tower. It is our choice if we
+                        want to become divided and miserable or united and strong, we just have to do the right choice.
+                    <p>
+                    <p>Now, how does this relate to applying funny colors to your Linux machines and posting it on <a
+                        href="https://www.reddit.com/r/unixporn/" target="_blank">r/unixporn</a>?<br> Exactly. As soon as you read
+                        the title of the article and my mention of Unixporn, your brain most likely imagined a fancy minimal window
+                        manager setup running on some old but robust Thinkpad, something difficult that only expert nerds do, right?
+                        Hmm, not quite.
+                    </p>
+                    <p>
+                        "Ricing" your Linux is useful. Not only does it make your computer feel more personal and aligned with who you
+                        are, it can also be helpful, due to accessibility reasons. Not all screens are made equal, some colder/hotter
+                        color palletes might look completely different depending on where you are looking and at what time of day.
+                        Control over color is so important that some graphic design programs force their interface to use certain
+                        shades of gray, to prevent you form subconsciously affecting your work, as our eyes and brain are victims from
+                        our biology, due to chromatic adaptation and the <a
+                            href="https://en.wikipedia.org/wiki/Von_Kries_coefficient_law" target="_blank">Von Kries coefficient law</a>,
+                        making the brain automatically white balance colors.<br>
+                        Having control over the colors of your system (and not just the accent color) is something <b>fundamental</b>
+                        for comfortable use.<br>
+                        In my case, I recently adopted the Tokyo Night colorscheme in VSCodium because I needed a pallete that
+                        highlighted HTML links in a different color in comparison to the quotation marks, as it's easy for me to miss
+                        the correct location to put the cursor in, leading to me removing the quotation marks <b>very</b> often...<br>
+                        I am an example of someone who uses theming as an accessibility feature. You see why people obsess so much
+                        over this?
+                    </p>
+                    <img class="img-resize" src="/media/tokyo-night.png">
+                    <p>
+                        Well, have you wondered why Linux theming has such a prominent stereotype?<br>
+                        If you tried to initiate yourself in the arcane arts of theming, you probably know the answer to this
+                        question, it is <b>hard and infuriating</b>, without any good argument to justify it's difficulty.<br>
+                        My duty in this article is laying out the <b>absurdity</b> for the world to see, so we can all finally agree
+                        that
+                        we <b>need</b> to transform <b>The Rice of Babel</b> from it's current form, the tyranny of confusion and
+                        disagreement, to taking computing to the next level of harmony and joy. We are surprisingly close to turning
+                        this hope into reality.<br>
+                        <b>The Rice of Babel</b> we dream of is in our reach. I have been able to craft this dream into reality
+                        before, let
+                        me show you. Dream with me:
+                    </p>
+                    <h5>The Rice of Babel ~ Light Mode:</h5>
+                    <img class="img-resize" src="/media/lv-rice00.png"><br>
+                    <img class="img-resize" src="/media/lv-rice01.png"><br>
+                    <img class="img-resize" src="/media/lv-rice02.png"><br>
+                    <h5>The Rice of Babel ~ Dark Mode:</h5>
+                    <img class="img-resize" src="/media/lv-rice03.png"><br>
+                    <img class="img-resize" src="/media/lv-rice04.png"><br>
+                    <img class="img-resize" src="/media/lv-rice05.png"><br>
+                    <p>
+                        That is what <b>The Rice of Babel</b> means to me. In those pictures you see multiple different toolkits and
+                        programs that support some form of theming together, in harmony, specifically: XFCE (with XFWM decorations),
+                        XFCE4 Terminal Color Scheme, GTK 2/3/4, GTK Libadwaita, QT 5, QT 6 and Electron Toolkit.<br>
+                        It's also able to switch dynamically between the light and dark variants and it's able to theme programs under
+                        Flatpak correctly.<br>
+                        Now, achieving this took an unreasonable amount of research and effort for what is just changing a few colors.
+                        Before entering into the <b>absurd</b> details, let's compare that setup with what Ubuntu
+                        25.04 has to offer by default, as one of the leading Linux distributions, they should give you a comfortable
+                        and
+                        accesible visual experience on par, if not superior, to my tinkering.
+                    </p>
+                    <h5>Ubuntu 25.04 ~ Light Mode:</h5>
+                    <img class="img-resize" src="/media/ubuntu2504-00.png"><br>
+                    <img class="img-resize" src="/media/ubuntu2504-01.png"><br>
+                    <img class="img-resize" src="/media/ubuntu2504-02.png"><br>
+                    <h5>Ubuntu 25.04 ~ Dark Mode:</h5>
+                    <img class="img-resize" src="/media/ubuntu2504-03.png"><br>
+                    <img class="img-resize" src="/media/ubuntu2504-04.png"><br>
+                    <img class="img-resize" src="/media/ubuntu2504-05.png"><br>
+                    <div align="center" class="images">
+                    </div>
+                    <p>
+                        Now, look closely. See the mismatch? Ubuntu's main theme is Yaru, it uses orange and sometimes purple accents.
+                        Neither VLC or Kate follow the style properly. These graphical mismatches only get worse the more you explore
+                        around the system and the more you research how Linux's available toolkits work.<br>
+                        Why does Ubuntu, the arguably most popular Linux distribution, fail so catastrophically at theming? Why is my
+                        hacked attempt more consistent? What is happening here?<br>
+                        <b>The Rice of Babel's</b> curse is starting to unfold. Ubuntu is not the exception, but the norm. Very few
+                        Linux distributions give you a good, somewhat consistent, visual experience out of the box. Only KDE based
+                        distros, Linux Mint, and some truly niche exceptions give you (mostly) all around good results. The rest of
+                        them have some sort of obvious flaw that will either flash bang you in the middle of the night with a light
+                        theme or make your eyes slightly cringe every time you try to use the computer.<br>
+                        It is now time to explore the theming capabilities of the toolkits, so we can truly grasp the dreams that we
+                        are missing out on.
+                    </p>
+                    <h5 id="toolkit"><a href="#toolkit">Toolkit Exploration</a></h5>
+                    <h6>GTK 2/3/4 & Libadwaita</h6>
+                    <p>
+                        GTK and the GNOME project (the group of people in charge of developing GTK) have a complicated relationship
+                        with toolkit theming.<br> The original method to theme GTK 3 was broken in the <a
+                            href="https://docs.gtk.org/gtk3/changes.html#changes-in-gtk-320" target="_blank">GTK 3.20</a> release,
+                        because it was easy to make GTK programs crash due to the unstable nature of the methods used. You can read
+                        more about that on <a
+                            href="https://www.reddit.com/r/linux/comments/4l5meg/eli5_why_do_new_versions_of_gtk_3_always_seem_to/"
+                            target="_blank">this</a> Reddit thread.<br> Aside those clashes, GTK 3 and GTK 4 without Libadwaita are
+                        perfectly themeable by both users and developers.
+                    </p>
+                    <p>The clashes between GTK/GNOME and theming don't stop there. A bit before the release of GTK 4, many
+                        developers who use the GTK toolkit released an open letter, <a href="https://stopthemingmy.app/"
+                            target="_blank">Please don't theme our apps</a>. The goal of this text was to highlight the problems with
+                        unconscious theme developers breaking programs in a multitude of ways. Unfortunately for them, this ended up
+                        causing more harm than good in the long run, as this has been cited as proof that <b>"ohh that pesky GNOME
+                        doesn't like users and theming!"</b>. It got to the point that parodies were made to make fun of this
+                        initiative.
+                    </p>
+                    <p>
+                        This clearly lead to a change in the mindset of the GTK developers, enough was enough, theming had to get
+                        regulated. To achieve this, GNOME created the <a href="https://gnome.pages.gitlab.gnome.org/libadwaita/"
+                            target="_blank">Libadwaita</a> library, an addition to GTK 4. The objective of Libadwaita is making it easy
+                        to develop programs that look consistent and are easy to access across all types of screens, for example, by
+                        making it easy to use Libadwaita programs on screens with small resolutions like the ones on mobile
+                        devices.<br>
+                        However, this created chaos, as once again, GNOME broke the theming methods developers and users were using,
+                        with the same excuse, to make theming better and more reliable by doing things like allowing runtime
+                        recoloring of programs.<br>
+                        Users were expecting GNOME to use the power of Libadwaita to provide first party, stable theming for all, just
+                        like how the KDE desktop does. Four years later and all we got from GNOME's side were hard coded accent colors
+                        in <a href="https://nyaa.place/blog/libadwaita-1-6/" target="_blank">Libadwaita 1.6</a> and some CSS goodies in
+                        a <a href="https://nyaa.place/blog/css-happenings/" target="_blank">GTK update</a>.<br>
+                        To this day, even with the good things that the library provides, theming GTK4/Libadwaita is still
+                        challenging, it took users and developers outside of the core GTK/GNOME team a lot of effort to crack open the
+                        box of Libadwaita theming.
+                    </p>
+                    <p>
+                        To give a few examples, KDE only bothers to set up the accent color of Libadwaita programs by using the XDG
+                        Portal, alongside window decorations that mimic KDE's.<br>
+                        Side by side, this is how the programs differ. In the following images, you can clearly see that the colors
+                        used on the KDE and GTK4/Libadwaita programs are different, not even the purple used is the same purple as the
+                        KDE purple (the one that should dominate here, as these pictures were taken on a KDE environment).
+                    </p>
+                    <img class="img-resize" src="/media/kde-settings.png"><br>
+                    <img class="img-resize" src="/media/parabolic.png"><br>
+                    <p>
+                        It gets even more annoying if you try to utilize KDE's built in mechanisms for theming applications, the more
+                        you play around with KDE's tools, the more alien Libadwaita programs will look.
+                    </p>
+                    <p>
+                        Another side effect of Libadwaita's methods for theming applications is that it forces developers to break GTK
+                        even harder than with the GTK 3.20 method. Third party theme developers are forced to override the user's
+                        configuration files to apply the theme they made. Take a look at the <a
+                            href="https://github.com/vinceliuice/Colloid-gtk-theme" target="_blank">Colloid GTK Theme</a>'s --help
+                        message:
+                    <blockquote>Install specify gtk-4.0 theme into config folder ($HOME/.config/gtk-4.0) for all gtk4 apps use this
+                        theme. Default ColorSchemes theme will follow the system style (light/dark mode switch), all ColorSchemes
+                        versions not support this!
+                    </blockquote>
+                    <br>
+                    The lack of an accessible standard that can allow users and developers to theme an already packaged program,
+                    caused multiple developers to create their own ways of breaking Libadwaita. For example, various Theme
+                    Developers, COSMIC and Cinnamon have their own ways of breaking Libadwaita to achieve the same thing, with
+                    varying levels of success.<br>
+                    For example, <a href="https://www.linuxmint.com/rel_zara_whatsnew.php" target="_blank">Linux Mint 22.2</a>'s
+                    method of theming Libadwaita looks quite nice, as long as you are using one of the official Mint themes.
+                    </p>
+                    <img class="img-resize" src="https://www.linuxmint.com/pictures/screenshots/zara/libadwaita.gif">
+                    <p>
+                        But, if you try to use any other GTK theme, even ones that have support for hacking Libadwaita, like in the
+                        case of <a href="https://github.com/vinceliuice" target="_blank">VinceLiuice's</a> themes, it won't work
+                        properly. Mint's efforts unfortunately don't extend to cover third party themes.<br>
+                        However, Linux Mint recently forked Libadwaita to provide users and developers with a version that has classic
+                        theme support, called <a href="https://github.com/xapp-project/libadapta" target="_blank">LibAdapta</a>.
+                    </p>
+                    <img class="img-resize" src="/media/mint00.png">
+                    <p>
+                        These engineering decisions that GTK/GNOME made, only create fragmentation and it can make programs that alter
+                        Libadwaita in the intended way, appear all broken and ugly, punishing those who follow the rules for theming
+                        it properly.<br>
+                        This is the negative side of <b>The Rice of Babel</b>, such a shame, because correctly themed Libadwaita looks
+                        nice. Thankfully, a rebirth of the now defunct <a href="https://daudix.one/blog/archiving-gradience/"
+                            target="_blank">Gradience</a> has occurred! This new program, <a
+                            href="https://github.com/SwordPuffin/Rewaita" target="_blank">Rewaita</a>, promises to respect the styling of
+                        Libadwaita programs that theme themselves, while also allowing users to control how their programs look. It's
+                        also yet another way to break Libadwaita... GTK/GNOME can't catch a break...<br>
+                        Oh well, here is a showcase of how <a href="https://gitlab.gnome.org/GNOME/gnome-text-editor"
+                            target="_blank">GNOME Text Editor</a>, one of the programs that ships with built in themes, looks. Another
+                        glimpse at the dream.
+                    <div align="center" class="images">
+                        <img src="/media/gte00.png"> <img src="/media/gte01.png">
+                    </div>
+                    <div align="center" class="images">
+                        <img src="/media/gte02.png"> <img src="/media/gte03.png">
+                    </div>
+                    <h6>QT 5/6</h6>
+                    <p>
+                        The QT toolkit is <b>in theory</b> a lot more theming friendly when compared to Libadwaita, as long as you are
+                        inside a desktop environment built on QT, like LXQT or KDE.<br>
+                        On KDE's case, you get a wide arrange of things to tweak and customize, for example, this is just what you can
+                        edit inside of a theme's specific color settings:<br>
+                        <img class="img-resize" src="/media/kde-colors.png"><br>
+                        You can change everything in KDE. Just get ready to see a lot of bugs, like third party developers not
+                        properly testing their themes or the kind of thing you saw with Libadwaita programs earlier.<br>
+                        On LXQT's case, we can see QT's strong theming capabilities, as they allow you to select both a Qt Style and a
+                        Qt Palette. However, we can again see <b>The Rice of Babel's</b> curse at play here, if you open a QT program
+                        that doesn't feel in the mood, or a GTK program (even GTK 3 ones), the fancy theme you made will not work,
+                        it's QT exclusive and LXQT doesn't go the extra mile to help you out, unlike KDE, who offers a GTK 3 theme
+                        that uses most of the modifications you made to your QT theme.<br>
+                        Here are two examples showcasing the power of QT's theming inside LXQT.
+                    </p>
+                    <div align="center" class="images">
+                        <img src="/media/lxqt00.jpg"> <img src="/media/lxqt01.jpg">
+                    </div>
+                    <p>
+                        Unfortunately, the theming power of the toolkit is locked if you happen to be outside a QT desktop
+                        environment, it is why the VLC on my Ubuntu screenshots back at the <a href="#intro">Introduction</a> looks
+                        completely out of place. I never figured out how to access the settings that LXQT and KDE expose to you
+                        directly without the need of more programs (Libadwaita can get modified by only editing files).<br>
+                        But... Then how did I solve the problem on my setup? Well, I had to rely on a very useful tool called <a
+                            href="https://github.com/tsujan/Kvantum/tree/master/Kvantum" target="_blank">Kvantum</a>, made by one of the
+                        LXQT devs!<br>
+                        Kvantum acts as an intermediary between QT's theming capabilities and the user, by allowing users and
+                        developers to create a theme on an .SVG file, that can get loaded onto any QT program. You only need to tell
+                        your system to load Kvantum onto QT with a Linux <a
+                            href="https://wiki.archlinux.org/title/Environment_variables" target="_blank">environment variable</a>.<br>
+                        Here is how some of the default Kvantum themes look:
+                    </p>
+                    <div align="center" class="images">
+                        <img src="/media/KvDefault.png"> <img src="/media/KvAmbience.png">
+                    </div>
+                    <p>
+                        QT's power outside of QT desktops only grows larger if we start experimenting with <a
+                            href="https://github.com/desktop-app/qt5ct" target="_blank">qt5ct</a> and <a
+                            href="https://github.com/trialuser02/qt6ct" target="_blank">qt6ct</a>, as they enable us to configure things
+                        like fonts, icon themes and what QT Style to use. Unfortunately, both programs seem to be abandoned, use them
+                        at your own risk. It's sad to see fallen soldiers in the quest to turn <b>The Rice of Babel</b> into a
+                        reality.
+                    </p>
+                    <h6>COSMIC</h6>
+                    <p>
+                        COSMIC is the new desktop environment shaped kid (or vice versa?) on the block. We don't know what impact it
+                        will have on FOSS computing, but we can get a pretty good idea at the plans System76 has in mind by looking at
+                        the latest Alpha.<br>
+                        COSMIC introduces a new GUI for users and developers, <a href="https://github.com/pop-os/libcosmic"
+                            target="_blank">LIBCOSMIC</a>. This toolkit has been designed from the ground up to support modern features,
+                        like theming or scaling, in a supposedly no nonsense approach.<br>
+                        LIBCOSMIC programs can be customized by changing an easily accessible configuration file. We do have to keep
+                        in mind that currently, there is no comfortable way of theming COSMIC programs outside of COSMIC, there is no
+                        qt5ct for LIBCOSMIC yet, but it would be less of a problem thanks to the straightforward configuration files.
+                        However, if we take a look at how the toolkit works inside COSMIC, we will be pleasantly surprised.<br>
+                        Here are some of the themes that the Founder and CEO of System76, Carl Richell, made.
+                    </p>
+                    <img class="img-resize" src="/media/cosmic-alien.jpg"><br>
+                    <img class="img-resize" src="/media/cosmic-cobalt.jpg"><br>
+                    <p>
+                        Living the life, don't you think? In case you want to see the creative process in action, he made a video <a
+                            href="https://fosstodon.org/@carlrichell/115091785230588071" target="_blank">showcasing</a> it.<br>
+                        Let's dive deeper. COSMIC's theming is not limited to LIBCOSMIC programs, they also theme GTK 3/4 and
+                        Libadwaita programs out of the box.<br>
+                        In the following images, you can see COSMIC at work, theming GTK 3/4 and Libadwaita.
+                    </p>
+                    <img class="img-resize" src="/media/cosmic00.png"><br>
+                    <img class="img-resize" src="/media/cosmic-office.png"><br>
+                    <img class="img-resize" src="/media/cosmic01.png"><br>
+                    <p>
+                        Unfortunately, COSMIC suffers the same problem as Ubuntu, QT programs will look out of place. At least, we
+                        know that System76 developers are <a
+                            href="https://www.reddit.com/r/pop_os/comments/1bkdqxs/cosmic_now_supports_theming_gtk34_applications/"
+                            target="_blank">interested</a> in figuring out a way of theming QT, we have to stay hopeful.
+                    </p>
+                    <img class="img-resize" src="/media/cosmic02.png">
+                    <h5 id="rice-babel"><a href="#rice-babel">The Rice of Babel</a></h5>
+                    <p>
+                        Did you notice the pattern? Did you notice that it is completely possible to theme every mayor GUI toolkit?
+                        Did you notice how <b>easy</b> and <b>fun</b> the solutions look when the developers help you out?<br>
+                        By this point, I really hope that you noticed what the problem is. The biggest pain point in Linux theming.
+                        This is why this article and this section is called <b>The Rice of Babel</b>.
+                    </p>
+                    <p>
+                        There are multiple, completely avoidable and silly problems with how Linux theming is being done that are
+                        actively preventing users from having consistent and customizable experiences, regardless of what their
+                        desktop/window manager of choice is. The ideal example I created at the start of this article should be the
+                        <b>standard</b> and the <b>norm</b>, not the nerdy exception. Ah and I am not saying Gruvbox is the best color
+                        scheme, it's just an example!
+                    </p>
+                    <p>
+                        The first problem is that the developers behind Linux's graphical toolikts, desktop environments & window
+                        managers, are not working together to ensure a satisfactory experience with theming and customization,
+                        regardless of what or where you are tweaking.<br>
+                        For example, COSMIC and every single GTK desktop out there don't provide you with any easy way of theming QT
+                        programs. Any old regular QT program will look just like the broken examples I showed you.<br>
+                        KDE is aware of this, but their solutions to fix this are lackluster. They don't properly empower users who
+                        want to use KDE or QT programs outside of their realm, instead, their fixes are unstable and prone to breaking
+                        under edge cases, like trying to theme KDE programs with Kvantum outside KDE or having the themes reload
+                        automatically based on the system's light/dark preference (hacked Libadwaita has this problem too, yet another
+                        accessibility problem!).<br>
+                        And in the case of Linux distributions shipping COSMIC or GTK desktops, most of them don't bother either to
+                        theme QT, being a combined distro/desktop failure. One of the few that does bother is Linux Mint, as they ship
+                        with a configured qt5ct out of the box, however, that trick makes some programs vulnerable to all kinds of
+                        visual bugs and inconsistencies. It's a tradeoff.<br>
+                        If these developers, who have all the necessary pieces to make this happen already on the table, came together
+                        to decide how to solve Linux theming, I wouldn't be writing this.<br>
+                        I wonder, is cooperation even needed?<br>
+                        KDE and COSMIC could create a program alike the old <a href="https://github.com/lxde/lxappearance"
+                            target="_blank">LXAppearance</a> or <a href="https://github.com/nwg-piotr/nwg-look"
+                            target="_blank">nwg-look</a> to control their toolkits outside of their turf. Just repeat that for every
+                        important component and it should be straightforward enough for most people to figure it out, just like how it
+                        works for a terminal theme. It would also enable distribution developers to theme their products easily.<br>
+                        Maybe some of the existing tools, like Kvantum or Rewaita, could collaborate in these cases, who knows.<br>
+                        Also, don't get me started on how messy things get if you try to theme Snap and Flatpak packages... Or QT
+                        programs inside a Flatpak, I will be honest, I didn't try theming a QT Snap but I imagine it's worse than
+                        waterboarding, take some notes [insert intelligence agency]!
+                    </p>
+                    <p>
+                        The second problem is related to how hard theming the toolkits on their current state is. To understand why,
+                        you need to know how programs with <b>proper</b> theming are customized.<br>
+                        Programs like your terminal do all the heavy lifting for you, what you do is select the colors and
+                        transparency and the terminal knows what to do. Even simpler terminals without a GUI to configure them, like
+                        Ghostty, do these kinds of heavy lifting for the user.<br>
+                        For example, this is how the theme settings look inside Konsole's theme editor and how the colors you set look
+                        when displayed with <a href="https://github.com/fastfetch-cli/fastfetch" target="_blank">fastfetch</a> (the
+                        transparency is gone due to how KDE screenshots work).
+                    </p>
+                    <img class="img-resize" src="/media/theme-editor.png"><br>
+                    <img class="img-resize" src="/media/fastfetch00.png">
+                    <p>
+                        Almost every single setup you see in r/unixporn works like this. What they do is use programs that have some
+                        form of an easy to use configuration file and then they glue them up together to form a coherent looking
+                        system.<br>
+                        Terminal? Set up the color scheme. Desktop bar? Set up the color scheme. Wallpaper? Pick one that follows the
+                        color scheme.<br>
+                        But as soon as you open any GTK, QT or LIBCOSMIC program in one of these lazier r/unixporn settings, the
+                        illusion breaks and the curse sets in. <a href="https://dhh.dk/" target="_blank">DHH</a> unintentionally
+                        exemplified this on his <a href="https://youtu.be/TcHY0AEd2Uw?si=p1rw9SUqx-rBQkdP" target="_blank">Omarchy
+                        2.0</a> video tour.<br>
+                        For most of the tour, he keeps selling you on how good Omarchy is, with a strong emphasis on theming and
+                        browser/terminal programs and how everything stays in sync when you click "switch". They even went the extra
+                        mile to create a Chromium fork, that just got merged into <a
+                            href="https://x.com/dhh/status/1965000250428629328" target="_blank">Chromium</a>, so it can play along with
+                        the theme switching.<br>
+                        Looks good, right?
+                    </p>
+                    <img class="img-resize" src="/media/omarchy00.png">
+                    <p>
+                        Looks good, until you open any usual GUI program.
+                    </p>
+                    <img class="img-resize" src="/media/omarchy01.png">
+                    <p>
+                        You felt that, right? Your little ricer heart get crushed by the old GTK 3 Adwaita style... They didn't even
+                        bother to use <a href="https://github.com/lassekongo83/adw-gtk3" target="_blank">adw-gtk3</a> to try and keep
+                        the GUIs using a consistent, modern looking universal default.<br>
+                        I think that <a href="https://37signals.com/" target="_blank">37signals</a> knows about these problems, but it
+                        got so clusterfucky for them to solve that they stopped trying to make Omarchy 100% consistent, at least for
+                        version 2.<br>
+                        I even asked DHH directly on X/Twitter and he dodged the question by doubling down on the "just use Web/TUI"
+                        argument.
+                    </p>
+                    <a href="https://x.com/dhh/status/1960427297644929282" target="_blank"><img class="img-resize"
+                        src="/media/dhh00.jpg" alt="https://x.com/dhh/status/1960427297644929282"></a>
+                    <p>
+                        If forking Chromium is easier than applying colors to GUI toolkits that totally support it, then we are doing
+                        something <b>very very wrong</b>.
+                    </p>
+                    <h5 id="conclusion"><a href="#conclusion">Conclusion</a></h5>
+                    <p>
+                        The Linux community need to decide what to do about <b>The Rice of Babel</b> before it continues dragging us
+                        down. Currently, it is acting like divine punishment from God. It is our duty to prove God a point, as we
+                        transform it from being a symbol of chaos, separation and oppression into a symbol of beauty, unity and
+                        prosperity.<br>
+                        This challenge is eagerly waiting for someone to solve it.<br>
+                        What will it take? What will happen? A DHH-like figure enforcing his will over others? An agreement between
+                        groups to create a standard? KDE and COSMIC working together without an even more stubborn GNOME? Small
+                        compartmentalized programs that do the business? The ricers taking it upon themselves to fix theming once and
+                        for all?<br>
+                        Whatever the case, we should try it out, things are already bad, nothing is lost from trying to solve
+                        this.<br>
+                        Let's... just love ourselves a bit by giving us a nice thing, we deserve it.
+                    </p>
+                    <p>
+                        If you have useful technical skills, ACT and use them to help solve this. If you have design skills, do the
+                        same. Whatever you have in your bag, use it.<br>
+                        If you feel that you are not ready for the challenge, you might ask yourself "what can I do about this?".<br>
+                        Well, for starters, <b>spread the word</b> and make sure this reaches as many people as possible!<br>
+                        Then, if you can, throw money at it, of course! Donate to groups like <a href="https://kde.org/donate/"
+                            target="_blank">KDE</a>, <a href="https://donate.gnome.org/" target="_blank">GNOME</a>, <a
+                            href="https://opencollective.com/lxqt" target="_blank">LXQT</a> or buy yourself a <a
+                            href="https://system76.com/" target="_blank">System76</a> device and include a message explaining <b>why</b>
+                        you decided to donate to them.<br>
+                        If it isn't clear, the most important part is that we work together to solve this and that we make our goal
+                        <b>clear</b>. We also must question ourselves, "do we want Linux to look all broken and inconsistent?".
+                    </p>
+                    <p>
+                        Now, in my case, I already did my part by bringing this up into the spotlight, as I don't want Linux looking
+                        all ugly and broken. That is the most I can do right now, as the rest of the options I put on the table
+                        are beyond my reach right now.<br> My most sincere wish is that Linux and open source keeps getting
+                        better, while keeping the bad things out, we are so close at making this a constant for Linux, let's keep up!
+                    </p>
+                    <p>
+                        If you have any questions, suggestions, whatever, let me know!
+                    </p>
+                    <p>
+                        I hope you liked my first article ever and that it was useful to you. Thanks for reading! Farewell!
+                    </p>
+                    <img class="img-resize" src="/media/sailor-moon-smile.gif" title="Bye Bye!" alt="Bye Bye!">
+                    <h5 id="updates"><a href="#updates">Updates</a></h5>
+                    <p>
+                        <b>0) Ricing Guide:</b> Sooner or later I will make a guide on how to apply most of the things I mention in this article. I will try to make it the definitive resource for beginners in theming Linux. All of the tools are already there. If Linux distributions won't step in for the user, I don't have any other choice but to fill the void.
+                    </p>
+                    <p>
+                        <b>1) Pywal16:</b> I discovered the existence of <a
+                            href="https://github.com/eylles/pywal16" target="_blank">pywal16</a>. This is an essential tool for achieving <b>The Rice of Babel</b>, as it allows you to customize the appearance of countless programs from a singular place. It has enough potential to theme almost all of your system on it's own. I mention it here thanks to <a
+                            href="https://github.com/eylles/pywal16" target="_blank">pywal16-libadwaita</a>'s ability to theme QT via Kvantum. If you combine one of the generated templates with Rewaita, you should be able to theme almost every GUI inside your system.
+                    </p>
+                    <p>
+                        <b>2) Noctalia shell:</b> Out in the realms of Wayland window managers, you can find programs that bridge the gap between them and desktop environments, one of them is <a
+                            href="https://github.com/noctalia-dev/noctalia-shell" target="_blank">Noctalia Shell</a>. After talking with one of the developers in <a
+                            href="https://www.reddit.com/r/unixporn/comments/1ndsdq0/niri_noctalia/" target="_blank">this</a> post, I was made aware that Noctalia should be able to theme Libadwaita programs out of the box. Alongside COSMIC, this is one of the projects that <b>care</b> in giving their users consistent GUIs.<br>
+                        I didn't verify this, if you use Noctalia let me know what is the true extent of it's theming capabilities.<br>
+                        <b>08/01/2026 Update: Noctalia <a
+                            href="/projects/blog/08-01-2026.html" target="_blank">delivered</a>.</b>
+                    </p>
+                    <p>
+                        <b>3) qt6ct</b> I found out that qt6ct is maintained. The project moved to <a
+                            href="https://www.opencode.net/trialuser/qt6ct" target="_blank">Gitlab</a> without making it clear by looking at the outdated Github repository. There is no link to the Gitlab in the repository or the author's profile.
+                    </p>
+                    <p>
+                        <b>4) Rewaita & COSMIC Collaboration:</b> When I was reading the comments of Mii beta's <a
+                            href="https://www.youtube.com/watch?v=fb4YTu8pFVM" target="_blank">Rewaita</a> video, I stumbled upon a hidden gem. A commenter was openly wishing for KDE to implement Rewaita's theming logic. As a response, Mii said that Rewaita and COSMIC share the same trick to theme Libadwaita programs. The quest for stable Libadwaita theming, be it with GNOME's help or not, is making huge strides lately.<br>
+                        On that comment section, another user mentioned that GTK 4 supports live theme switching, meaning that GNOME broke third party light/dark mode switching <b>on purpose</b> on Libadwaita programs that get edited with a third party theme.<br>
+                        Word of advice for GNOME maintainers, stop forcing your will upon your users while bragging that you fight fascism, don't be hypocritical, you are only making everyone tired of the nonsense and that is dangerous. The risks are higher than ever, as ANTIFA got labeled as a terrorist organization in the US and some GNOME contributors openly stated that GNOME is ANTIFA.<br>
+                        Seriously, WTF, GNOME? You need to reevaluate your PR, controversies keep happening and FOSS could be massively damaged if anything bad happens, I wonder, are the GNOME contributors aware of the risks? Could the developers listed as part of things like <a
+                            href="https://circle.gnome.org/" target="_blank">GNOME Circle</a> or people with the "Foundation Member" status be affected by GNOME's lack of responsibility? What would GNOME and FOSS do if a developer gets ICEd due to ignorant people?<br>
+                        Sorry for the tangent, but <b>software should be focused on software and not on political politics but ON software politics</b> and it seems like I was the only one who made the "GNOME, FOSS and people's freedom could get in trouble if they put contributors in prison over their ANTIFA statements". Stay safe and responsible out there, everything is getting out of hand and it felt necessary to put this out there before anyone gets surprised in this spiral of violence that we live in.
+                    </p>
+                    <p><b>4) Plasma 6.5</b> The KDE project released <a
+                        href="https://kde.org/announcements/plasma/6/6.5.0/#new-features" target="_blank">Plasma 6.5</a>. This version makes it easier to switch between light and dark themes (and global themes), a big step in the right direction. I don't see support for Konsole or Kate's themes mentioned, but this makes theming more approachable for new users and it is a few details away from reaching <b>The Rice of Babel</b>'s theming level.
+                    </p>
+                    <p>
+                        <b>5)</b> <a href="https://github.com/IgKh/cutecosmic" target="_blank"><b>CuteCosmic:</b></a> A very work in progress
+                        program was made that allows COSMIC to theme QT/KDE programs. This was promoted by System76's CEO Carl Richell on a
+                        Twitter <a href="https://x.com/carlrichell/status/1983736548379214334" target="_blank">post</a>. I would advise you to
+                        continue using Kvantum until this is more mature, but we can clearly see the efforts of a more straightforward theming
+                        experience unfold as time moves on.
+                        </p>
+                        </section>
+                        </main>
+                        </div>
+                        <!-- Add any additional Javascript code (<script></script>) here. -->
+                        </body>
+
+                        </html>

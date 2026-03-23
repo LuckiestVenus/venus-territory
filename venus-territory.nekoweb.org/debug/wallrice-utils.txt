@@ -1,0 +1,23 @@
+
+
+    https://farbenfroh.io/
+
+    https://ziap.github.io/repalette/
+
+    https://github.com/ozwaldorf/lutgen-rs
+
+    https://github.com/kiddae/ImageColorizer
+
+    https://github.com/NicklasVraa/Color-manager
+
+    https://github.com/doprz/dipc
+
+    https://github.com/NotNeelPatel/WallpaperThemeConverter
+
+    https://github.com/Achno/gowall
+
+    https://github.com/SebaBlamey/ChangeColorScheme
+
+    https://github.com/ashish0kumar/tint
+
+    https://www.wallrice.xyz/

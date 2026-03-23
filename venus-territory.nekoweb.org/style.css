@@ -1,0 +1,804 @@
+/* SETTINGS */
+@media (prefers-color-scheme: light) {
+    :root {
+    --content-background-color: #faf4edf2; /* Base */
+    --sidebar-background-color: #faf4edf2;
+    --blockquote-color: #fffaf3; /* Surface */
+
+    /* Text Colors: */
+    --text-color: #575279; /* Text */
+    --sidebar-text-color: #575279;
+    --header-color: #575279;
+    --selection-color: #28698370; /* Pine */
+    --link-color: #56949f; /* Foam */
+    --link-color-hover: #b4637a; /* Love */
+    --link-color-visited: #907aa9; /* Iris */ 
+
+    /* Other Settings: */
+    --font: "Merriweather";
+    --heading-font: "Spline Sans Mono";
+    --font-size: 18px;
+    --margin: 12px;
+    --padding: 20px;
+    --border: 4px solid #575279; /* Text */
+    --round-borders: 8px;
+    --sidebar-width: 250px;
+
+    }
+
+    /* BASICS */
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Light: bg0, fg3  https://www.magicpattern.design/tools/css-backgrounds */
+        background-image: url(/media/strawberry2-rose.png);
+        /*background-color: #FBF1C7;
+        opacity: 1;
+        background-image:  radial-gradient(#665C54 2px, transparent 2px), radial-gradient(#665C54 2px, #FBF1C7 2px);
+        background-size: 75px 75px;
+        background-position: 0 0,40px 40px;*/
+
+        min-height: 100vh;
+        font-size: var(--font-size);
+        margin: 0;
+        padding: var(--margin);
+        color: var(--text-color);
+        font-family: var(--font);
+        line-height: 1.2;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+    --content-background-color: #191724f2; /* Base */
+    --sidebar-background-color: #191724f2;
+    --blockquote-color: #1f1d2e; /* Surface */
+
+    /* Text Colors: */
+    --text-color: #e0def4; /* Text */
+    --sidebar-text-color: #e0def4;
+    --header-color: #e0def4;
+    --selection-color: #31748f70; /* Pine */
+    --link-color: #9ccfd8; /* Foam */
+    --link-color-hover: #eb6f92; /* Love */
+    --link-color-visited: #c4a7e7; /* Iris */
+
+    /* Other Settings: */
+    --font: "Merriweather";
+    --heading-font: "Spline Sans Mono";
+    --font-size: 18px;
+    --margin: 12px;
+    --padding: 20px;
+    --border: 4px solid #e0def4; /* Text */
+    --round-borders: 8px;
+    --sidebar-width: 250px;
+
+    }
+
+    /* BASICS */
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Dark: bg0_h, fg3  https://www.magicpattern.design/tools/css-backgrounds */
+        background-image: url(/media/strawberry2-rose-dark.png);
+        /*background-color: #1D2021;
+        opacity: 1;
+        background-image:  radial-gradient(#BDAE93 2px, transparent 2px), radial-gradient(#BDAE93 2px, #1D2021 2px);
+        background-size: 75px 75px;
+        background-position: 0 0,40px 40px;*/
+
+        min-height: 100vh;
+        font-size: var(--font-size);
+        margin: 0;
+        padding: var(--margin);
+        color: var(--text-color);
+        font-family: var(--font);
+        line-height: 1.2;
+    }
+}
+/* -------------------------------------------------------- */
+
+::selection {
+    background: var(--selection-color);
+}
+
+a {
+    text-decoration: underline;
+}
+
+a,
+a:visited {
+    color: var(--link-color-visited);
+}
+
+a:link {
+    color: var(--link-color);
+}
+
+a:hover,
+a:focus {
+    color: var(--link-color-hover);
+   
+}
+
+/* -------------------------------------------------------- */
+/* LAYOUT */
+/* -------------------------------------------------------- */
+
+.layout {
+  width: 1000px;
+  display: grid;
+  grid-gap: var(--margin);
+  grid-template: "header header" auto "main rightSidebar" auto "footer footer" auto / auto var(--sidebar-width);
+  /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
+}
+
+main {
+  grid-area: main;
+  overflow-y: auto;
+  padding: var(--padding);
+  background: var(--content-background-color);
+  border: var(--border);
+  border-radius: var(--round-borders);
+}
+
+/* -------------------------------------------------------- */
+/* HEADER */
+/* -------------------------------------------------------- */
+
+header {
+  grid-area: header;
+  font-size: 1.2em;
+  border: var(--border);
+  border-radius: var(--round-borders);
+  background: var(--content-background-color);
+}
+
+.header-content {
+  padding: var(--padding);
+}
+
+.header-title {
+  font-family: var(--heading-font);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------------------- */
+/* SIDEBARS */
+/* -------------------------------------------------------- */
+
+aside {
+  grid-area: aside;
+  border: var(--border);
+  border-radius: var(--round-borders);
+  overflow: hidden;
+  background: var(--sidebar-background-color);
+  padding: var(--padding);
+  color: var(--sidebar-text-color);
+}
+
+.left-sidebar {
+  grid-area: leftSidebar;
+}
+
+.right-sidebar {
+  grid-area: rightSidebar;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: var(--heading-font);
+}
+
+.sidebar-section:not(:last-child) {
+  margin-bottom: 3em;
+}
+
+.sidebar-section ul,
+.sidebar-section ol {
+  padding-left: 1.5em;
+  list-style: disc;
+  user-select: none;
+}
+
+.sidebar-section > *:not(p):not(ul):not(ol):not(blockquote) {
+  margin-top: 10px;
+}
+
+/* Sidebar Blockquote: */
+
+.sidebar-section blockquote {
+  background: var(--blockquote-color);
+  padding: 15px;
+  margin: 1em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: var(--border);
+  border-radius: var(--round-borders);
+}
+
+.sidebar-section blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.sidebar-section blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+/* -------------------------------------------------------- */
+/* FOOTER */
+/* -------------------------------------------------------- */
+
+footer {
+  grid-area: footer;
+  border: var(--border);
+  border-radius: var(--round-borders);
+  overflow: hidden;
+  font-size: 0.75em;
+  padding: 15px;
+  background: var(--content-background-color);
+  display: flex;
+  justify-content: center;
+}
+
+footer a,
+footer a:visited {
+  color: var(--link-color);
+}
+
+footer a:hover,
+footer a:focus {
+  color: var(--link-color-hover);
+}
+
+/* -------------------------------------------------------- */
+/* NAVIGATION */
+/* -------------------------------------------------------- */
+
+nav {
+  margin-bottom: 3em;
+}
+
+nav .sidebar-title {
+  margin-bottom: 0.5em;
+}
+
+nav ul {
+  margin: 0 -5px;
+  padding: 0;
+  list-style: none;
+  user-select: none;
+}
+
+nav ul li {
+  margin-bottom: 0;
+}
+
+nav > ul li > a,
+nav > ul li > strong {
+  display: inline-block;
+}
+
+nav > ul li > a,
+nav > ul li > details summary,
+nav > ul li > strong {
+  padding: 5px 10px;
+}
+
+nav > ul li > a.active,
+nav > ul li > details.active summary {
+  font-weight: bold;
+}
+
+nav ul summary {
+  cursor: pointer;
+}
+
+nav ul ul li > a {
+  padding-left: 30px;
+}
+
+/* NAVIGATION IN HEADER */
+
+header nav {
+  margin-bottom: 0;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header nav ul li {
+  position: relative;
+}
+
+header nav ul li:first-child > a {
+  padding-left: 0;
+}
+
+header nav ul li:last-child > a {
+  padding-right: 0;
+}
+
+/* Subnavigation (Drop-Down): */
+
+header nav ul ul {
+  background: var(--content-background-color);
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  padding: 0.5em;
+  z-index: 1;
+  border: var(--border);
+  min-width: 100%;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+header nav ul li:hover ul,
+header nav ul li:focus-within ul {
+  display: block;
+}
+
+header nav ul li {
+  color: var(--link-color);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+header nav ul ul li a {
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* -------------------------------------------------------- */
+/* CONTENT */
+
+main {
+    line-height: 1.5;
+}
+
+main a,
+main a:visited {
+    color: var(--link-color-visited);
+}
+
+main a:link {
+    color: var(--link-color);
+}
+
+main a:hover,
+main a:focus {
+    color: var(--link-color-hover);
+    
+}
+
+main p,
+main .image,
+main .full-width-image,
+main .two-columns {
+    margin: 0.75em 0;
+}
+
+main ol,
+main ul {
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+}
+
+main ol li,
+main ul li {
+    margin-bottom: 0.2em;
+    line-height: 1.3;
+}
+
+main ol {
+    padding-left: 2em;
+}
+
+main blockquote {
+    background: var(--blockquote-color);
+    padding: 15px;
+    margin: 1em 0;
+    border-radius: 10px;
+    border: var(--border);
+    border-radius: var(--round-borders);
+}
+
+main pre {
+    margin: 1em 0 1.5em;
+}
+
+main code {
+    text-transform: none;
+}
+
+main center {
+    margin: 1em 0;
+    padding: 0 1em;
+}
+
+main hr {
+    border: 0;
+    border-top: 2px dotted green;
+    margin: 1.5em 0;
+}
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+    font-family: var(--heading-font);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+main h1:first-child,
+main h2:first-child,
+main h3:first-child,
+main h4:first-child,
+main h5:first-child,
+main h6:first-child {
+    margin-top: 0;
+}
+
+main h1 {
+    font-size: 1.5em;
+}
+
+main h2 {
+    font-size: 1.4em;
+}
+
+main h3 {
+    font-size: 1.3em;
+}
+
+main h4 {
+    font-size: 1.2em;
+}
+
+main h5 {
+    font-size: 1.1em;
+}
+
+main h6 {
+    font-size: 1em;
+}
+
+.horizontal {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-evenly;
+  max-width: max-content;
+  flex-wrap: wrap;
+  gap: var(--margin);
+}
+
+.square ul,
+.square li {
+  list-style-type: square;
+}
+
+.disc ul,
+.disc li {
+  list-style-type: disc;
+}
+
+.nopoint ul,
+.nopoint li {
+  list-style: none;
+}
+
+
+/* COLUMNS: */
+
+.two-columns {
+  display: flex;
+}
+
+.two-columns > * {
+  flex: 1 1 0;
+  margin: 0;
+}
+
+.two-columns > *:first-child {
+  padding-right: 0.75em;
+}
+
+.two-columns > *:last-child {
+  padding-left: 0.75em;
+}
+
+/* -------------------------------------------------------- */
+/*  CONTENT IMAGES */
+
+.image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+.full-width-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.images { /* for keeping them all in line, can hide itself */
+    display: flex;
+    width: calc(100% + 5px + 5px);
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.images .image {
+    margin: 0;
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.img-resize { 
+    object-fit: contain;
+    max-width: 100%;
+}
+
+.img-mirror {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
+.img-border {
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--border);
+}
+
+/* -------------------------------------------------------- */
+/* ACCESSIBILITY */
+/* -------------------------------------------------------- */
+
+/* please do not remove this. */
+
+#skip-to-content-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  line-height: 1;
+  font-size: 1.25rem;
+  background-color: var(--content-background-color);
+  color: var(--text-color);
+  transform: translateY(-3rem);
+  transition: transform 0.1s ease-in;
+  z-index: 99999999999;
+}
+
+#skip-to-content-link:focus,
+#skip-to-content-link:focus-within {
+  transform: translateY(0);
+}
+
+
+/* -------------------------------------------------------- */
+/* 	MOBILE RESPONSIVE */
+
+@media (max-width: 800px) {
+  body {
+    font-size: 18px;
+  }
+
+  .layout {
+    width: 100%;
+    grid-template: "header" auto  "leftSidebar" auto "main" auto "rightSidebar" auto "footer" auto / 1fr;
+    /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
+  }
+
+  
+  /*.right-sidebar { 
+    display: none;
+  }*/
+
+  aside {
+    border-bottom: 1px solid;
+    padding: 9px;
+    font-size: 18px;
+  }
+
+  
+  nav {
+    padding: 0;
+  }
+
+  nav > ul {
+    padding-top: 0.5em;
+  }
+
+  nav > ul li > a,
+  nav > ul li > details summary,
+  nav > ul li > strong {
+    padding: 0.5em;
+  }
+
+  main {
+    max-height: none;
+    padding: 15px;
+  }
+
+  .images {
+    flex-wrap: wrap;
+  }
+
+  .images img {
+    width: 100%;
+  }
+
+  #skip-to-content-link {
+    font-size: 1rem;
+  }
+}
+
+/* -------------------------------------------------------- */
+/*  MISC */
+
+
+
+/* -------------------------------------------------------- */
+/*  FONTS */
+
+#headerH1 {
+    font-family:'SF Archery Black Oblique';
+}
+
+#headerEm {
+    font-family: "Spline Sans Mono";
+    font-weight: bold;
+}
+
+#medium {
+    font-family: "Merriweather Medium";
+}
+
+#serif {
+    font-family: "Merriweather Serif";
+}
+
+#monospace {
+    font-family: "Spline Sans Mono";
+}
+
+
+@font-face {
+    font-family: "SF Archery Black Oblique";
+    src: url('/fonts/SF_Archery_Black_Oblique.ttf');
+    format: ("truetype");
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("/fonts/MerriweatherSans-Regular.ttf");
+    format: ("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("/fonts/MerriweatherSans-Italic.ttf");
+    format: ("truetype");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("/fonts/MerriweatherSans-Bold.ttf");
+    format: ("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("/fonts/MerriweatherSans-BoldItalic.ttf");
+    format: ("truetype");
+    font-style: italic;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Merriweather Medium";
+    src: url("/fonts/MerriweatherSans-Medium.ttf");
+    format: ("truetype");
+}
+
+@font-face {
+    font-family: "Merriweather Medium";
+    src: url("/fonts/MerriweatherSans-MediumItalic.ttf");
+    format: ("truetype");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Merriweather Serif";
+    src: url("/fonts/Merriweather_24pt-Regular.ttf");
+    format: ("truetype");
+}
+
+@font-face {
+    font-family: "Merriweather Serif";
+    src: url("/fonts/Merriweather_24pt-Italic.ttf");
+    format: ("truetype");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Merriweather Serif";
+    src: url("/fonts/Merriweather_24pt-Bold.ttf");
+    format: ("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Merriweather Serif";
+    src: url("/fonts/Merriweather_24pt-BoldItalic.ttf");
+    format: ("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Spline Sans Mono";
+    src: url("/fonts/SplineSansMono-Regular.ttf");
+    format: ("truetype");
+}
+
+@font-face {
+    font-family: "Spline Sans Mono";
+    src: url("/fonts/SplineSansMono-Italic.ttf");
+    format: ("truetype");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Spline Sans Mono";
+    src: url("/fonts/SplineSansMono-Bold.ttf");
+    format: ("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Spline Sans Mono";
+    src: url("/fonts/SplineSansMono-BoldItalic.ttf");
+    format: ("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+#compatFont {
+    font-family: sans-serif;
+}

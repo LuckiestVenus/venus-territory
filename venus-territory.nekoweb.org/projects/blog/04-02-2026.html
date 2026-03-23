@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Modern Developer Nonsense - 04/02/2026 Blog Entry - Venus Territory</title>
+        <meta name="description" content="Good things come to those who stay!" />
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+        <meta content="utf-8" http-equiv="encoding" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link href="/style.css?nocache=6" rel="stylesheet" />
+        <script src="/layout.js?nochache=22"></script>
+    </head>
+    <body>
+        <!-- The next line is a skip-to-content link for keyboard users. Do not remove it! -->
+        <a href="#content" id="skip-to-content-link">Skip to content</a>
+        <div class="layout">
+            <noscript>Please enable JavaScript to view this website!</noscript>
+            <main id="content">
+                <section id="serif">
+                    <h1>Modern Developer Nonsense - 04/02/2026 Blog Entry</h1>
+                    <p>
+                        <b>TLDR: Avoid using <a
+                            href="https://hypr.land/" target="_blank">Hyprland</a>, <a
+                            href="https://zed.dev/" target="_blank">Zed</a>, <a
+                            href="https://ghostty.org/" target="_blank">Ghostty</a> and <a
+                            href="https://sw.kovidgoyal.net/kitty/" target="_blank">Kitty</a> if you have a first gen i3/5/7 Intel CPU or earlier/similar models.</b>
+                    </p>
+                    <img class="img-resize" src="/media/retro.jpg" title="https://www.tumblr.com/foolcrum57/790784606627643392/found-this-pic-on-facebook-marketplace-thats" alt="https://www.tumblr.com/foolcrum57/790784606627643392/found-this-pic-on-facebook-marketplace-thats">
+                    <p>
+                        Welcome to a new blog! Today we will talk about the questionable practices of modern developers, centered on OpenGL support and old hardware. Let's get started!
+                    </p>
+                    <p>
+                        I have a question for you. Do you own an old computer?
+                    </p>
+                    <p>
+                        Most, if not all, the people who use computers regularly have some old hardware gathering dust in a corner of their house, just like me!<br>
+                        Around a year ago, I got one of those old computers as a gift. It was quite outdated, shipping a first-gen Intel Westmere i3-540 alongside only 2 GB of DDR3 RAM. I upgraded it a bit, mainly by getting some missing accessories, cables, and another 2GB stick of RAM.
+                    </p>
+                    <p>
+                        I don't use that PC often; I would rather have a more recent laptop with a lower TDP for the tasks that I need (server that can act as a backup machine). However, even if it's currently redundant to me, I keep it up to date and tested with all the software that I use, in the unlikely situation that my daily driver laptop breaks or some other event happens.<br>
+                        Here is a comparison between my two CPUs:
+                    </p>
+                    <img class="img-resize" src="/media/cpu-wars.png" title="Intel i3-540 VS AMD Ryzen 5 3500U" alt="Intel i3-540 VS AMD Ryzen 5 3500U">
+                    <p>
+                        One of the nice things about having this system is that I am able to truly test how well things run on this garbage can.<br>
+                        Well... That's what I would say if many basic programs actually worked on this machine...
+                    </p>
+                    <p>
+                        My plan was to set up both my laptop and this old desktop to use the same software. The idea was to use <a href="https://hypr.land/" target="_blank">Hyprland</a> as the Window Manager, alongside <a href="https://noctalia.dev/" target="_blank">Noctalia</a> as the Desktop Shell; This combo is lightweight but extremely powerful, just what I needed, but then the problems started.
+                    </p>
+                    <p>
+                        Hyprland would not start. I remember following the crash debugging instructions on their wiki, and I saw something related to OpenGL on my output, weird. At first I thought my PC somehow didn't have the correct drivers installed, but no, they were installed properly. Hyprland Wiki's solution was to compile Hyprland with the Legacy Renderer activated. I checked all the repositories available on CachyOS and Hyprland with that renderer was not an option.<br>
+                        Also, I didn't find any documentation on what that renderer actually does, for what systems it is useful, or if it gets proper Quality Assurance.
+                    </p>
+                    <p>
+                        Sorry, but I won't manually Hyprcompile a Hyprgarbage that should work by Hyprdefault. Imagine how frustrating it would be to do all the compiling manually without a working GUI, just to find out it never got QA in 6 months. No, thanks. I ended up switching to <a href="https://yalter.github.io/niri/" target="_blank">Niri</a> and�of course it worked flawlessly. I also discovered that it has some surprising features that, upon discovery, made me like the project more than Hyrpland, for example, the Alt+Tab or built-in screenshot interface. So Hyprthanks for your Hyprbad coding & lack of consideration for people with older hardware, Vaxry.
+                    </p>
+                    <p>
+                        Unfortunately, that was not the end of the modern developer's vibe-coded wrath upon me.<br>
+                        My preferred terminal is <a href="https://ghostty.org/" target="_blank">Ghostty</a>, as it has an excellent mix of ease of use, with modern features (like image previews or tiling) and good performance.<br>
+                        But when I ran Ghostty, I got another error related to OpenGL, "Unable to acquire OpenGL context". But the GTK interface worked, the error was shown on the interface, in the place where the terminal is located. I did the same thing as with Hyprland, I searched all over their documentation and other sources and I couldn't find anything meaningful that helped me solve it.<br>
+                        Because I didn't have anything to lose, I tried to run the <a href="https://sw.kovidgoyal.net/kitty/" target="_blank">Kitty</a> terminal and yet again, another OpenGL issue. Fortunately, the Kitty developers were kind enough to <a href="https://github.com/kovidgoyal/kitty/issues/2536" target="_blank">mention</a> the minimum OpenGL requirements that Kitty needs to work (OpenGL 3.3).<br>
+                        Another program that failed with a similar problem was <a href="https://zed.dev/" target="_blank">Zed</a>. Once again I didn't find any information online, but the obvious suspect is OpenGL.<br>
+                        Ah, funny thing, VSCode works just fine on this CPU, seems like Zed is not yet ready to be a good replacement for Microslopware.
+                    </p>
+                    <p>
+                        It was at that point that I searched online for what version of OpenGL my i3-540 uses. It runs using OpenGL 2.1. Intel CPUs name their integrated graphics differently from the name of the chips. My i3-540 has a 5th Generation Nehalem iGPU.
+                    </p>
+                    <img class="img-resize" src="/media/opengl-versions.png" title="https://wiki.gentoo.org/wiki/Intel#Feature_support" alt="https://wiki.gentoo.org/wiki/Intel#Feature_support">
+                    <p>
+                        On that graph, you can see that the video drivers are correctly installed inside the Intel Mesa driver. This OpenGL nightmare is not due to my hardware or Operating System configuration being faulty, but due to software not supporting my hardware.
+                    </p>
+                    <h5><a href="#the-bigger-problem">The Bigger Problem</a></h5>
+                    <br>
+                    <img class="img-resize" src="/media/hyprproblem.png" title="Your PC is very, very old." alt="Your PC is very, very old.">
+                    <p>
+                        Don't let the Hyprland wiki gaslight you; my Intel i3-540 is not that old, and it works flawlessly for tasks in the range of office + browser workloads. One of the recent trends with hardware is that we are starting to hit diminishing returns, as we are having more and more problems with reducing the size of the hardware to squeeze out more performance. This is why my 16-year-old CPU is able to do lighter tasks without any problems.<br>
+                        Hell, if you paid attention to the performance comparison, you can see that the single core performance difference between my two systems is not that big, in fact the i3 can push the clock speeds higher than the Ryzen without relying on turbo. Quite strange for 9 years of difference. This is the same amount of time between 1999 and 2008, yet the gap in performance gains is considerably smaller.
+                    </p>
+                    <p>
+                        Now, what other CPUs are from around the same time as my i3? How about some legendary chips like the Core 2 Duo and the Core 2 Quad, alongside more niche mobile and server options. The programs I mentioned don't support CPUs from 2010 and earlier. If you want to see how well these chips can handle heavy tasks, see this video from Budget Builds: <a href="https://www.youtube.com/watch?v=dh9UyJgO6iA" target="_blank">Intel's Core2Quad... Finally Obsolete?</a><br>
+                        You can play GTA 5 and Half Life 2 at 1080p 60fps on a Core 2 Quad, but you can't run a terminal on them...
+                    </p>
+                    <p>
+                        What I want to know is, what are the practical reasons for these programs to not support the OpenGL versions these chips use? It's not like these chips lack the power to run animations...<br>
+                        On Niri's <a href="https://github.com/YaLTeR/niri?tab=readme-ov-file#status" target="_blank">Github</a>, the developers clearly confirm that this window manager is able to run on the absolutely atrocious Eee PC 900 from 2008 without problems; performance as an excuse is completely ruled out. We can also rule out the programming language of choice, because Niri is built using the modern Rust language, yet it works perfectly fine on the Eee PC.
+                    </p>
+                    <p>
+                        This is a question of developer comfort versus user comfort. I don't know what is missing from the older OpenGL versions that is so crucial to these more modern programs, but in my opinion, I think these developers are lazy. There are titanic programs like web browsers, games, and other operating system fundamentals (KDE, GNOME, GTK, QT, etc.) that run just fine on these CPUs.<br>
+                        Don't complain that OpenGL whatever is hard to code until you try to make Minecraft run on a Dreamcast like real programmers; grow a pair, you are using low-level languages.
+                    </p>
+                    <p>
+                        There are people out there that still depend on these older chips to do their daily work. First, they got betrayed by Microsoft, and now they are slowly getting left in the dust by these newer FOSS developers.<br>
+                        Do we live in a mental bubble? Didn't you see the RAM and GPU mafia in action? You have no idea about how many people are locked out of modern hardware due to these price hikes and other unfair situations like low wages in third world countries.
+                    </p>
+                    <p>
+                        My recommendation is that you avoid using these programs that value "performance" so much. What's the point of performance if it can't help in keeping older hardware running for longer? The logical thing is running faster software on slower hardware.<br>
+                        Just so you know, every single problematic program I mentioned brags about how <i>blazingly fast</i> they are. It seems like they got set ablaze...
+                    </p>
+                    <p>
+                        I am obviously being painfully sarcastic here. Just mention what the minimum requirement for OpenGL and all other hardware requirements are so people don't waste time installing and debugging software not built for their hardware. I am not diminishing the fact that these developers are still being ignorant assholes for not bothering to support the oldest CPUs that can still do modern-day tasks.<br>
+                        I am this critical because we are talking about software that solves basic tasks. Do you think I would mind if you placed higher hardware requirements to have more modern GPU features in your new monstrous AAA 3D game? By nature, things like a window manager or terminals are on the simpler side when compared to full-blown desktops like GNOME or complex video editing programs that work just fine on these systems.<br>
+                        Then why don't these programs work? I wouldn't be surprised if OpenGL is not the problem here, but then the atrocious error messages of these programs didn't help me at all in figuring out what went wrong.
+                    </p>
+                    <p><i>If your machine still cuts perfect circles 60 years later, why replace it?</i></p>
+                    </section>
+                    </main>
+                    </div>
+                    <!-- Add any additional Javascript code (<script></script>) here. -->
+                    </body>
+
+                    </html>
