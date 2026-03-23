@@ -1,31 +1,38 @@
 @media (prefers-color-scheme: light) {
     :root {
-    --content-background-color: #faf4edf2; /* Base */
-    --sidebar-background-color: #faf4edf2;
-    --blockquote-color: #fffaf3; /* Surface */
+        --content-background-color: #faf4edf2;
+        /* Base */
+        --sidebar-background-color: #faf4edf2;
+        --blockquote-color: #fffaf3;
+        /* Surface */
 
-    /* Text Colors: */
-    --text-color: #575279; /* Text */
-    --sidebar-text-color: #575279;
-    --header-color: #575279;
-    --selection-color: #28698370; /* Pine */
-    --link-color: #56949f; /* Foam */
-    --link-color-hover: #b4637a; /* Love */
-    --link-color-visited: #907aa9; /* Iris */ 
+        /* Text Colors: */
+        --text-color: #575279;
+        /* Text */
+        --sidebar-text-color: #575279;
+        --header-color: #575279;
+        --selection-color: #28698370;
+        /* Pine */
+        --link-color: #56949f;
+        /* Foam */
+        --link-color-hover: #b4637a;
+        /* Love */
+        --link-color-visited: #907aa9;
+        /* Iris */
     }
-    
-    
-    
+
+
+
     body {
-    max-width: 100%;
-    color: var(--text-color);
-    font-family: "Merriweather";
-    font-weight: normal;
-    font-size: 18px;
-    opacity: 1;
-    background-image:  radial-gradient(#575279 2px, transparent 2px), radial-gradient(#575279 2px, #faf4ed 2px);
-    background-size: 90px 90px;
-    background-position: 0 0,40px 40px;
+        max-width: 100%;
+        color: var(--text-color);
+        font-family: "Merriweather";
+        font-weight: normal;
+        font-size: 18px;
+        opacity: 1;
+        background-image: radial-gradient(#575279 2px, transparent 2px), radial-gradient(#575279 2px, #faf4ed 2px);
+        background-size: 90px 90px;
+        background-position: 0 0, 40px 40px;
     }
 
 }
@@ -33,34 +40,41 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-    --content-background-color: #191724f2; /* Base */
-    --sidebar-background-color: #191724f2;
-    --blockquote-color: #1f1d2e; /* Surface */
+        --content-background-color: #191724f2;
+        /* Base */
+        --sidebar-background-color: #191724f2;
+        --blockquote-color: #1f1d2e;
+        /* Surface */
 
-    /* Text Colors: */
-    --text-color: #e0def4; /* Text */
-    --sidebar-text-color: #e0def4;
-    --header-color: #e0def4;
-    --selection-color: #31748f70; /* Pine */
-    --link-color: #9ccfd8; /* Foam */
-    --link-color-hover: #eb6f92; /* Love */
-    --link-color-visited: #c4a7e7; /* Iris */
+        /* Text Colors: */
+        --text-color: #e0def4;
+        /* Text */
+        --sidebar-text-color: #e0def4;
+        --header-color: #e0def4;
+        --selection-color: #31748f70;
+        /* Pine */
+        --link-color: #9ccfd8;
+        /* Foam */
+        --link-color-hover: #eb6f92;
+        /* Love */
+        --link-color-visited: #c4a7e7;
+        /* Iris */
     }
-    
+
     body {
-    max-width: 100%;
-    /*background-image: url("/media/starry.png");
+        max-width: 100%;
+        /*background-image: url("/media/starry.png");
     background-repeat: repeat;*/
-    color: var(--text-color);
-    font-family: "Merriweather";
-    font-weight: normal;
-    font-size: 18px;
-    /* Dark: bg0_h, fg3  https://www.magicpattern.design/tools/css-backgrounds */
-    /*background-image: url(/media/lemons-dark.png);*/
-    opacity: 1;
-    background-image:  radial-gradient(#e0def4 2px, transparent 2px), radial-gradient(#e0def4 2px, #191724 2px);
-    background-size: 90px 90px;
-    background-position: 0 0,40px 40px;
+        color: var(--text-color);
+        font-family: "Merriweather";
+        font-weight: normal;
+        font-size: 18px;
+        /* Dark: bg0_h, fg3  https://www.magicpattern.design/tools/css-backgrounds */
+        /*background-image: url(/media/lemons-dark.png);*/
+        opacity: 1;
+        background-image: radial-gradient(#e0def4 2px, transparent 2px), radial-gradient(#e0def4 2px, #191724 2px);
+        background-size: 90px 90px;
+        background-position: 0 0, 40px 40px;
     }
 
 }
@@ -86,14 +100,14 @@ a:link {
 a:hover,
 a:focus {
     color: var(--link-color-hover);
-   
+
 }
 
 header {
     color: var(--header-color);
 }
 
-.img-resize { 
+.img-resize {
     object-fit: contain;
     max-width: 100%;
 }
@@ -103,10 +117,10 @@ header {
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     transform: scaleX(-1);
-  }
+}
 
-  #headerH1 {
-    font-family:'SF Archery Black Oblique';
+#headerH1 {
+    font-family: 'SF Archery Black Oblique';
     font-size: 2.6em;
 }
 

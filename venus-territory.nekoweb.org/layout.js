@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Page has finished loading. Now, do things.
     loadLayoutByPetraPixel();
 

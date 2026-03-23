@@ -1,428 +1,881 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Before You Install Linux - Venus Territory</title>
-        <meta name="description" content="Good things come to those who stay!" />
-        <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-        <meta content="utf-8" http-equiv="encoding" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico">
-        <link href="/style.css?nocache=6" rel="stylesheet" />
-        <script src="/layout.js?nochache=22"></script>
-    </head>
-    <body>
-        <!-- The next line is a skip-to-content link for keyboard users. Do not remove it! -->
-        <a href="#content" id="skip-to-content-link">Skip to content</a>
-        <div class="layout">
-            <noscript>Please enable JavaScript to view this website!</noscript>
-            <main id="content">
-                <section id="serif">
-                    <h1>Before You Install Linux</h1>
-                    <h5 id="toc"><a href="#toc">Table of Contents</a></h5>
-                    <ul class="square">
-                        <li><a href="#intro">Introduction</a></li>
-                        <li><a href="#distro">What Linux should you use?</a></li>
-                        <li><a href="#migration">Preparing for migration</a></li>
-                        <li><a href="#filesystems">Disk partitions & file systems</a></li>
-                        <li><a href="#cli">The Command Line is your friend</a></li>
-                        <li><a href="#software">Managing software & updates</a></li>
-                        <li><a href="#help">Asking for help</a></li>
-                        <li><a href="#conclusion">Conclusion</a></li>
-                    </ul>
-                    <h5 id="intro"><a href="#intro">Introduction</a></h5>
-                    <p>
-                        Our societies are built on trusting each other to function properly. Software is also all about trust. By nature, software is hidden from view; we can't see one of our trustworthy slabs of sand and intuitively understand what it is doing just from looking at it. Only a few select wizards, called programmers, are able to understand the thinking sand.<br> Just like Prometheus did with fire, programmers gave us the gift of being able to use computers as tools without the need of understanding the arcane language of code.<br>
-                        But... What would happen if Prometheus was evil? Well, more than evil, greedy. What if Prometheus desired to keep a chain on anyone who used fire, in order to serve them ads in order to enrich himself and the Olympian gods? Unfortunately, that is what Microsoft is doing.
-                    </p>
-                    <p>
-                        We trusted that Microsoft would treat us with respect, but their <a href="https://www.tomshardware.com/software/windows/microsofts-draconian-windows-11-restrictions-will-send-an-estimated-240-million-pcs-to-the-landfill-when-windows-10-hits-end-of-life-in-2025" target="_blank">actions</a> say <a href="https://www.windowslatest.com/2025/10/07/microsoft-confirms-windows-11-to-require-microsoft-account-internet-during-oobe-tested/" target="_blank">otherwise</a>. Microsoft is transforming millions of fully capable computers into e-waste; at the same time, they are removing workarounds to keep some of these systems working without the need for you to put on the cloud chain.<br>
-                        And if you happen to need even more reasons to dislike Microsoft and Windows 11, take a look at this video:<br>
-                        <a href="https://www.youtube.com/watch?v=eZ5R5vWnnAY" target="_blank" title="Zac Of All Tech" alt="Zac Of All Tech">11 Reasons To Leave Windows 11 ~ Zac Of All Tech</a>
-                    </p>
-                    <p>
-                        You surely saw these actions and decided that enough was enough. You probably decided or considered that using a Linux operating system in order to give your computer secure and offline-capable software that would also protect you from Microsoft's planned obsolescence was a good idea. And then you hit a wall. <i>How do I do all of this???</i><br>
-                        Don't worry, Linux is intimidating, and new users have a lot to learn. In this article, I will share some knowledge that I hope will save you time and teach you a few useful tricks.
-                    </p>
-                    <p>
-                        This is not an installation guide but a complement to existing installation guides and tutorials. It will make you more ready to face off against the challenge of installing Linux, as I will cover things that these install guides often avoid mentioning, as they don't want to info dump you and scare you away, even if it increases the risk of things going wrong.
-                    </p>
-                    <p>
-                        I recommend that you check out any of the following videos and their authors; these are by far the best guides on how to get started with Linux (includes a few on Win10's end of support):
-                    </p>
-                    <ul class="square">
-                        <ul>
-                            <li><a href="https://www.youtube.com/watch?v=gRjD_XJuo7g" target="_blank"
-                                title="Salem Techsperts"
-                                alt="Salem Techsperts">$70 "Obsolete" ThinkPads - More Repairable, Reliable, and CHEAPER Than a Brand New Laptop ~ Salem Techsperts</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=e2wB9r1SYrY" target="_blank"
-                                title="ExplainingComputers"
-                                alt="ExplainingComputers">Choosing Your First Linux Distro ~ ExplainingComputers</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=FPYF5tKyrLk" target="_blank"
-                                title="Mental Outlaw"
-                                alt="Mental Outlaw">How To Switch to Linux (From Windows) ~ Mental Outlaw</a></li>
-                            <li><a href="https://www.youtube.com/@robbraxmantech" target="_blank"
-                                title="Rob Braxman Tech"
-                                alt="Rob Braxman Tech">Rob Braxman Tech's recent videos</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=n8vmXvoVjZw" target="_blank"
-                                title="ExplainingComputers"
-                                alt="ExplainingComputers">Switching to Linux: A Beginner’s Guide ~ ExplainingComputers</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=gRjD_XJuo7g" target="_blank"
-                                title="ExplainingComputers"
-                                alt="ExplainingComputers">Windows 10: Four Months to Go ~ ExplainingComputers</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=GP931lJg7X8" target="_blank"
-                                title="Michael MJD"
-                                alt="Michael MJD">Windows 10 is Dead... Now What? ~ Michael MJD</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=0oox87gARjE" target="_blank"
-                                title="The Linux Experiment"
-                                alt="The Linux Experiment">Windows 10 is done, and this is a bad thing for everyone (not just Windows users) ~ The Linux Experiment</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=j4_4x0wS2bs" target="_blank"
-                                title="Brodie Robertson"
-                                alt="Brodie Robertson">Windows 10 Is Over, So What Now!! ~ Brodie Robertson</a></li>
-                        </ul>
-                    </ul>
-                    <p>
-                        If you happen to get confused with some technical terms used here, I recommend that you search online what they mean. This is one of the few particular cases where one of the best options would be asking your AI of choice, as they have very good training data on FOSS, and they should be used as a better Google (very ironic that Google's AI preview is 10x worse than asking an AI directly), instead of being a slop machine. Follow your ethics for research, but I don't have the time to explain the terms. I recommend an AI for this because there are some terms that you won't find in Linux wikis.
-                    </p>
-                    <h5 id="distro"><a href="#distro">What Linux should you use?</a></h5>
-                    <p>
-                        This section is extremely subjective to my personal opinions and experiences using Linux. I think this is the truth, but everyone is different, and we must respect that. What I think is best for you could only be the best for me. To reach your own truth, you must experiment. I am just advising you in order to possibly save you time, as I meditated a ton about what would be best for new users, and I am confident enough on my opinions to say it out loud in here.<br>
-                    <p>
-                        One of, if not the most common question that new users make when they switch to Linux is "What Linux should I use?" This is normal; after all, there are more than 100 active and popular Linux versions, all more than valid choices. You even have popular sites like <a href="https://distrowatch.com" target="_blank">DistroWatch</a>, tailor-made to list out and discuss the myriad of Linux distros/versions reasonably. That is just how <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software" target="_blank">FOSS</a> works; everyone can make and share their own variations on Linux.<br>
-                        This means that you naturally have different versions designed to cater to different needs in the technology space. Linux is especially flexible; you can even use it on phones! (Android uses a version of Linux to work). I will assume that you require Linux to replace the obsolete Windows 10 running on the machine you want to target. Meaning, you need a desktop/laptop OS that is ready to handle day-to-day tasks of all kinds.
-                    </p>
-                    <p>
-                        Thankfully for us, the choice is actually pretty simple. There are a few Linux distributions that fill the niche perfectly, with some strengths and weaknesses that we must take into account, depending on what we want to accomplish.<br>
-                    </p>
-                    <p>
-                        First, all the relevant Linux distributions provide you with a method to handle software in your system, be it installing things like a web browser or keeping the system up to date, in order to prevent security vulnerabilities. I will detail this better at the <a href="#software">Managing software & updates</a> section, but I need to explain a part first so we can decide better.<br>
-                        The program that helps you in managing the software in your system is called a <a href="https://en.wikipedia.org/wiki/Package_manager" target="_blank">package manager</a>, for example, the Google Play Store is a package manager.<br>
-                        For comparison, the tradition in Windows is to skip all package managers; instead, users go and hunt the programs online. This method doesn't even guarantee you the ability to update your programs, being a huge security risk. However, if you use the Microsoft Store, you get the latest version of whatever program you need. Windows itself gives you the latest system updates for whatever version you are running (Windows 11 25H2 for example), and at one point it should ask you to update to the next minor version (Windows 11 26H2?) and eventually a full system upgrade when Windows 12 comes out.<br>
-                    </p>
-                    <p>
-                        Most Linux distributions follow a similar kind of strategy with their software; they call it a <b>stable/fixed release</b>. However, unlike Windows' fixed releases, the system's core software and whatever you install via the package manager are interconnected. For example, the Dolphin file manager program and VLC share things in common inside their guts; if you try to update VLC without taking into account the shared guts with Dolphin, then Dolphin could break. Not all programs share their engines with each other, but it's common enough that all stable release distros update both types of software (core system & non-essentials) at the same time.<br>
-                        To guarantee a more reliable experience, stable release distributions place some kind of time freeze on the software. For example, Ubuntu 24.04 froze their software versions at what was available and stable around April 2024, with the exception of security updates. To get a new version introducing features in Ubuntu, you need to wait until the next freeze and release happens, either 6 months or 2 years, depending on the version of Ubuntu.<br>
-                        Yes, this means that things like the drivers can get stuck at old versions, and very new computers can have problems with running adequately in stable releases, but don't worry, most distributions give you some way of getting more modern drivers.
-                    </p>
-                    <p>
-                        The other type of strategy for software distribution is called a <b>rolling release</b>. They keep the software in your system at the latest possible version at all times. For example, as soon as VLC releases a new version, the distribution maintainers update their Linux so it gives it to you as soon as possible. This also includes core system packages.<br>
-                        Rolling releases do minimal and near real-time testing for all components in your system. You are placing your trust in the individual developers of the programs you use; you trust that VLC will do a good job, and you get rewarded with all the nice new features quickly. These distros expect you to update frequently, usually around a month being the longest you can wait without increasing the risk of problems when updating.
-                    </p>
-                    <p>
-                        It's crucial for you to understand the distribution's release model before committing to an install. It would be unwise for someone with little free time to install a rolling release Linux. Likewise, installing a stable release Linux would be dumb for a software developer who needs the latest and greatest updates quickly.<br>
-                        This difference forces me to recommend different options depending on what release schedule works the best for you. There are ways to get around the release schedule, but they will get explained at <a href="#software">Managing software & updates</a>.
-                    </p>
-                    <h6>Stable Release Distros</h6>
-                    <h6><a href="https://linuxmint.com" target="_blank">Linux Mint</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/cinnamon.png" title="Linux Mint Cinnamon's desktop" alt="Linux Mint Cinnamon's desktop">
-                    <p>
-                        To me, Mint is the undisputed king of Linux. I have been a Linux user since 2017 (not a full 8 years). Mint was my first distribution. I have been following its progress, and they never did something I would consider awful. Mint managed to have longevity in an industry known for being volatile. If you can't tell, I have a strong bias in favor of Mint.<br>
-                        However, tons of people with good reputation inside Linux spaces back my favoritism; it's clear they are doing something right. And well, what makes them great?
-                    </p>
-                    <p>
-                        For starters, Mint gives you multiple versions, depending on what you need out of your computer. The flagship is the version with the Cinnamon desktop environment, but they do offer the MATE and Xfce desktops as alternatives for systems with more constrained resources and a Debian based version.
-                    </p>
-                    <p>
-                        Mint follows the release cycle of <a href="https://en.wikipedia.org/wiki/Package_manager" target="_blank">Ubuntu LTS</a>. That is, one feature update every 2 years. However, Mint gives minor releases every 6 months or so that update certain key components of the distro.<br>
-                        They also make the Cinnamon DE, an easy-to-use, stable, and feature-filled desktop that has a ton of small details that make it a very pleasant experience.
-                    </p>
-                    <p>
-                        Linux Mint comes equipped with a welcome program that has useful links to many essentials, like introductions to many system management programs that come with Mint or links to Mint's forums. If you take the time to read the welcome message, you will set your system up for success.<br>
-                        It also comes packed with a full suite of programs. Media players, browsers, office suites, and even their own set of programs (x-apps), including the backup utility Timeshift and their IPTV player Hypnotix!
-                    </p>
-                    <p>
-                        Another thing they do well is hardware support; they include a driver manager program, and their update manager has your back. Updating is easy, and they facilitate things like making the downloads of the updates faster and installing different Linux kernels if you happen to need them.<br>
-                        Mint also ships with a fast and stable graphical software store that is easy to understand. This is one of the very few distributions that are so well made you don't even need to touch the command line interface. Hell, they even take care of theming the programs for you!
-                    </p>
-                    <p>
-                        Last but not least, Linux Mint uses the X11 display server (a program that allows Linux to show things on your screen); you might need to reconsider using it if you have a multi-monitor setup (especially if you are mixing monitor refresh rates and screen resolutions). Mint does have the more modern Wayland display server as an option to fix some of these problems, but Mint's port is still in heavy development, and it could make your system unstable.
-                    </p>
-                    <h6><a href="https://system76.com/pop/" target="_blank">Pop!_OS</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/popos.png" title="Pop!_OS' COSMIC desktop" alt="Pop!_OS' COSMIC desktop">
-                    <p>
-                        Pop is in a weird state right now, as <a href="https://system76.com" target="_blank">System76</a> (the distro authors) did a major rework very recently. They just released the Pop 24.04 Beta with their brand-new COSMIC desktop environment.<br>
-                        Before this, they offered a customized <a href="https://www.gnome.org" target="_blank">GNOME</a> desktop experience, built on top of every release of Ubuntu (LTS and normal releases), but since they started the development of their own desktop, it seems like they moved to just using the LTS versions as a base. They do give out feature updates for certain key programs, just like Mint.<br>
-                    </p>
-                    <p>
-                        You may wonder why I bring up Pop, even if it's clearly in an unstable state right now. Well, the benefits it brings are unique enough that it deserves a mention here.<br>
-                        First, they really care about their users. Pop had big ambitions with their GNOME modifications, but due to the unstable nature of GNOME extensions, their work was hard to maintain as it would break with every version upgrade, making them stuck in a perpetual cycle of keeping things running without being able to bring improvements to their distro.<br>
-                        This is <a href="https://www.zdnet.com/article/linux-mints-cinnamon-a-gnome-3-x-shell-fork/" target="_blank">not the first time</a> that GNOME's modus operandi gets in the way of others in the Linux world; Mint had to scrap the idea of maintaining their Cinnamon desktop as a set of extensions that run on top of GNOME, instead making it a separate thing.<br>
-                        System76 just released the first beta for COSMIC. I have been using it, and aside from a few minor bugs, it has been surprisingly reliable and a very needed breath of fresh air in Linux.
-                    </p>
-                    <p>
-                        The main reason to use Pop, and by extension COSMIC, is the advanced window management features. The Wayland display server makes COSMIC capable of using multiple monitors effectively thanks to the superb scaling and good support for programs running on X11 for legacy reasons. It also gives you granular control over the <a href="https://help.ubuntu.com/stable/ubuntu-help/shell-workspaces.html.en" target="_blank">workspaces</a> in your system. COSMIC is the only desktop that allows you to tie a monitor to a workspace, allowing you to keep Monitor A in workspace 1 and Monitor B in workspace 2. In the rest of the desktops, if you switch to workspace 2, it switches on all the screens in your system, making multiple monitors more of a hassle than an advantage.<br>
-                        COSMIC is also the only one that treats normal floating windows and tiled windows (when windows get automatically adjusted in a mosaic that maximizes screen real estate usage) as first-class citizens; both get equal amounts of care and love. You can also tell a workspace to decide between floating or tiling, and don't get me started on things like pinning workspaces. You can do very complex setups.
-                    </p>
-                    <p>
-                        COSMIC aside, System76 takes care of giving you things like a backup built into the system that lets you reinstall the system in case something goes wrong. They take a more minimalistic approach with what they give you, as this is aimed at more advanced users, but with the COSMIC Store, you should be able to get all the software that you need. You also get a welcome program that will help you set up your system the first time you boot it.<br>
-                        I advise you to be careful with Pop 24.04, as it's still in beta, but you know, System76 needs to sell laptops to survive; they need to make sure that Pop and COSMIC are up to their quality standards. Check well that everything works before installing, but you are in good hands if you go with this distro.
-                    </p>
-                    <h6><a href="https://ultramarine-linux.org" target="_blank">Ultramarine Linux</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/ultramarine-plasma.webp" title="Ultramarine with KDE Plasma" alt="Ultramarine with KDE Plasma">
-                    <p>
-                        Do you remember what I told you about the types of release cycles? Well, Ultramarine has a weird one. They follow a 12-month release schedule, with a new version getting released every 6 months, giving you a bit of time to wait before updating to the next major release.<br>
-                        Unlike Mint and Pop (both Ubuntu derivatives), which do a near full freeze of feature updates, in Ultramarine you get curated feature updates. They do a bit of testing before giving out updates, but the pace of the distribution is quick enough that you may think you are in a rolling release. By nature, this makes Ultramarine more unstable than something like Mint, and it can start outpacing people's ability to keep up with the update cadence. For example, Ultramarine is not the best option for a boring bureaucratic office trying to replace Windows 10.<br>
-                        Ultramarine starts to shine as a good option when we take a look at the things they modify from their base, Fedora. They do things like providing you with complete codecs and expanding the list of software you can install.<br>
-                        The distro expects more skilled users than Mint; just like with Pop, the default software selection is more minimal but still sufficient for a lot of daily tasks. You get a software store and a welcome configuration helper the first time you boot it.
-                    </p>
-                    <p>
-                        Ultramarine ships with multiple editions. Flagship (Budgie), GNOME, Xfce, and KDE Plasma. Out of these, the more reliable are Xfce (useful for modest systems) and Plasma. They also provide you with more particular versions made to work with niche hardware like ARM computers and the Microsoft Surface. Another cool thing is their migration program, which can bring most of the nice things to existing Fedora installs.<br>
-                        Their documentation is also pretty good; they are open to informing you of tips and tricks and explaining how parts of the distro work.<br>
-                        This distro is a great choice for those who need more up-to-date software while keeping things as user-friendly and stable as possible.
-                    </p>
-                    <h6><a href="https://loc-os.com" target="_blank">Loc-OS Linux</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/loc-os.png" title="Loc-OS LXDE" alt="Loc-OS LXDE">
-                    <p>
-                        This is more of an honorable mention, as it covers a very important niche. Loc-OS is a distribution designed to be as lightweight as possible, to the point it can bring a new life to computers with extremely limited system resources, like old netbooks with 1 GB of RAM. The usual thing is that lightweight distros rely on harder-to-understand tools that are light on resources. Loc-OS finds a sweet spot of being user friendly and light.<br>
-                        You will find Loc-OS more useful if you know Spanish, as this project is more focused on the Spanish side of Linux; for example, the author does a lot of educational videos about Loc-OS on his YouTube. Loc-OS gives you access to Debian/Ubuntu's software availability, and they have their own additions to bring you things like a lightweight browser or some games. You could take the lightness even further by checking out other more advanced projects that Nico made, for example <a href="https://flinux-distro.sourceforge.io" target="_blank">FLinux</a>.<br>
-                        Just be ready for things to be rougher around the edges, but if you are trying to revive old hardware, I believe you are prepared.
-                    </p>
-                    <h6>Rolling Release Distros</h6>
-                    <p>
-                        Before we start, I need to tell you the truth. The explanation of stable releases I gave you before is somewhat misleading.<br>
-                        Did you notice that I called them fixed? The more appropriate name should be <b>fixed release</b>, not stable release. Why? Well, the freeze that is applied to them also counts software bugs in. What they value is predictability; if the frozen version of VLC has a software bug, they will not fix the problem unless it can cause a security risk. This is only a concern in Ubuntu/Debian-based distros or ones that follow the exact same strategy as them. If you happen to find a bug on one of those, it will keep you company for the 2 years the distro is installed in your machine, even if the solution to the issue is already available in the original program.<br>
-                        Some people might even argue that freezing the software only adds more strain to the software developers, as they have to deal with supporting old, outdated versions that are provided to millions, and they can't fix the problems due to how these distributions work. If you can deal with the more frequent updating, using a faster fixed release like Ultramarine or one of the rolling ones is the best idea.
-                    </p>
-                    <h6><a href="https://endeavouros.com" target="_blank">EndeavourOS</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/Mercury_Neo-LiveSession.webp" title="EndeavourOS KDE Plasma" alt="EndeavourOS KDE Plasma">
-                    <p>
-                        Endeavour is our first rolling distro. Their focus is on providing you with a skeleton, a good base for you to build your own Linux. They provide you with a minimal list of programs when you install it; for example, the ever-present LibreOffice is missing.<br>
-                        When you go and install Endeavour, they will give you a list of the most popular desktops, making it a customizable experience from the start.
-                    </p>
-                    <p>
-                        Endeavour provides you with a welcome program with a lot of very useful shortcuts, from updating the system to enabling Bluetooth and a curated list of programs that you can install. It's very important that you don't skip the welcome programs.<br>
-                        This distro is the first one to be designed to be more command-line oriented; among the ones I mentioned, it's the one with the smallest amount of graphical utilities. However, that doesn't stop them from providing you with useful resources; you better check out their wiki and forums!
-                    </p>
-                    <h6><a href="https://garudalinux.org" target="_blank">Garuda Linux</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/garuda-dr460nized.webp" title="Garuda Dr460nized" alt="Garuda Dr460nized">
-                    <p>
-                        Both Garuda and Endeavour use the same base, <a href="https://archlinux.org" target="_blank">Arch Linux</a>, but they couldn't be more different from each other.<br>
-                        Garuda is focused on providing the user with a ton of useful utilities for system maintenance; think of what Mint or Endeavour offer in graphical system utilities, cranked to the maximum. Among the features they bring, my favorites are the out-of-the-box system snapshots (every time you update the system, it creates a backup) and the extra software their ChaoticAUR source brings to Garuda.
-                    </p>
-                    <p>
-                        They also play with the build-your-own-thing idea, but it holds your hand more. The first time you install it, it asks you to update the system, and it directly informs you about curated software you can install to make things more complete.<br>
-                        Unlike Endeavour, which lets you customize things while installing, with Garuda you need to choose what edition you will be using before downloading the distribution. I recommend that you stick with the Cinnamon or Xfce version, as the KDE versions have an overwhelming appearance.<br>
-                        Garuda is more opinionated (not as opinionated as Omarchy, thankfully), but if you like their opinions, you will be in good hands. Also, you should know that they are a bit lacking in documentation, you might need to ask more in forums than with other options.
-                    </p>
-                    <h6><a href="https://cachyos.org" target="_blank">CachyOS</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/cachyos.png" title="CachyOS with KDE Plasma" alt="CachyOS with KDE Plasma">
-                    <p>
-                        We reach the final recommendation, CachyOS. This distro is very focused on performance. They put in the effort that others don't, as they do all sorts of smart software tricks that give your programs small performance boosts. The worst-case scenario is that you don't notice it, but on some setups it can give you free performance.<br>
-                        Software tricks aside, they have excellent documentation on the things they modify, and they give you a few useful graphical tools for system management, not on the level of Garuda, but more than enough for comfortable use.<br>
-                        One of their strengths is just how powerful the installer is; you can pick between the popular desktops, and they facilitate the installation of more rare window managers. But in general, the whole point is in giving you a slightly more friendly EndeavourOS with a ton of performance settings turned on. It's hard to notice how much they do for you with the optimizations without a deeper understanding of how software gets packaged, but they had to go one by one for most of the programs in your system (including small ones you never see or interact with), and they repeated the process for around 4 different kinds of CPUs.<br>
-                        They also give you a version compatible with devices in the style of the Steam Deck, quite nice!
-                    </p>
-                    <h6>What should you avoid?</h6>
-                    <p>
-                        The big variety in the Linux space means that things are not created equal. There are things that you should avoid using. These are a few things that, in my opinion, you should avoid.
-                    </p>
-                    <h6><a href="https://ubuntu.com/desktop" target="_blank">Non LTS Ubuntu</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/ubuntu.png" title="Ubuntu 25.10" alt="Ubuntu 25.10">
-                    <p>
-                        Ubuntu has a very strong reputation thanks to the fact that they were the pioneers in giving users an easy-to-use distribution; however, that Ubuntu is long dead, and there have been multiple dramas that prove it is an unstable and even dangerous product. This is especially prominent on the releases made every 6 months, as they are used for internal testing but are branded as production-ready. Just now, with the 25.10 release, Ubuntu <a href="https://news.itsfoss.com/ubuntu-25-10-flatpak-bug/" target="_blank">broke Flatpaks</a>. And on the 23.04 release, they <a href="https://www.omgubuntu.co.uk/2023/04/appimages-libfuse2-ubuntu-23-04" target="_blank">broke Appimages</a>. Isn't it strange how these moves were made at the exact same time that Ubuntu started <a href="https://www.omgubuntu.co.uk/2024/01/valve-dont-recommend-ubuntu-steam-snap" target="_blank">enforcing</a> <a href="https://blog.linuxmint.com/?p=3766" target="_blank">Snap</a> <a href="https://news.itsfoss.com/mozilla-firefox-deb/" target="_blank">packages</a> on users?<br>
-                        Ubuntu also makes dangerous experimental changes, like getting a sponsor from Amazon and adding a <a href="https://arstechnica.com/information-technology/2012/12/richard-stallman-calls-ubuntu-spyware-because-it-tracks-searches/" target="_blank">spyware</a> link right into the launcher. They also <a href="https://itsfoss.com/ubuntu-unity-shutdown/" target="_blank">discontinued</a> the Unity desktop they developed, alongside their Ubuntu Phone. Last but not least, they added the still-in-development <a href="https://www.phoronix.com/news/Ubuntu-25.10-Coreutils-Makeself" target="_blank">Rust Coreutils</a> into 25.10, something that could be dangerous to users who depend on the stable & original C language versions.
-                    </p>
-                    <p>
-                        Update 1: Xubuntu got <a href="https://www.youtube.com/watch?v=8CjVOuwVbqA" target="_blank">hacked</a> and they started distributing malware. What a release huh...<br>
-                        Update 2: Rust Coreutils <a href="https://www.phoronix.com/news/Ubuntu-25.10-Broken-Upgrade" target="_blank">broke</a> Ubuntu's unattended upgrades mechanism.
-                    </p>
-                    <p>
-                        Unless you install one of the LTS releases or a derivative that protects you from the bad stuff, you should avoid Ubuntu.
-                    </p>
-                    <h6><a href="https://www.gnome.org" target="_blank">GNOME</a></h6>
-                    <br>
-                    <img class="img-resize" src="/media/ultramarine-gnome.webp" title="Ultramarine with GNOME" alt="Ultramarine with GNOME">
-                    <p>
-                        The main reason to avoid GNOME, especially for new users, is the extravagant style the user interface uses. They created a new concept for how desktop computers should work, for better or worse. Unfortunately, reinventing the wheel at this stage is something few people are able to tolerate; their brains lock down and they refuse to even try to understand what is in front of them. I expect this to be the case for most people reading this.<br>
-                        If you feel brave enough to try GNOME, give it a go. Watch this <a href="https://www.youtube.com/watch?v=H4IhGxmdke0" target="_blank">first</a>. However, there are more reasons over why I don't recommend GNOME.
-                    </p>
-                    <details>
-                        <summary id="gnome-drama"><b>GNOME's political people drama</b></summary>
-                        <p>
-                            Update: GNOME Foundation director, Cassidy James, displayed <a href="https://community.frame.work/t/framework-supporting-far-right-racists/75986/1835" target="_blank">professionalism</a>. I hope this good behavior continues and he gets the loudmouths under control.
-                        </p>
-                        <p>
-                            First, GNOME is unprofessional; tons of important maintainers (with some outside GNOME) are on a hate campaign against people who they deem as fascists, more often than not calling for these people to get harmed, just because they disagree with their opinions. All of these situations are still ongoing; but the cycle of hate and violence keeps growing.
-                        </p>
-                        <p>
-                            Examples include:
-                        </p>
-                        <p>
-                            <a href="https://lunduke.com" target="_blank">Bryan Lunduke</a>: Who they attack for being a yellow journalist who is more on the conservative side of politics and being a Jew (I get it, Gaza sucks, but come on, like he was the author of the war), just go check his posts and you will see it. It doesn't matter if he was an important OpenSUSE contributor and a valuable critical voice in the Linux world. Lunduke is easy to dislike, but that distaste turning into a "you can't mention his name, and if you do, we will ban you from spaces we control" is wild to me.
-                        </p>
-                        <p>
-                            <a href="https://frame.work" target="_blank">Framework</a>: Who they attacked for being a <a href="https://x.com/LundukeJournal/status/1976160144191894003" target="_blank">neutral company</a>, as they used distros they deem controversial in their marketing, alongside sending DHH a review unit. These actions are placing one of the very few hardware developers who are committed to recyclable and modular hardware at risk. GNOME and some FOSS contributors think that Framework has <a href="https://x.com/LundukeJournal/status/1976046474698912019" target="_blank">Hitler Particles</a>, all because they used the wrong Linux!<br>
-                            I get it, you might dislike this direction from Framework, but why is the criticism so extreme? Answering with violence creates more violence. Thankfully, the situation has been contained to a <a href="https://community.frame.work/t/framework-supporting-far-right-racists/75986" target="_blank">forum post</a>. I encourage you to go read it if you really want a full picture of the situation. Framework has now clarified that Omarchy (DHH's distro) didn't get sponsored; they just sent a review unit to DHH, something reasonable after seeing the <a href="https://x.com/dhh/status/1978540285853409706" target="_blank">download numbers</a>. It's truly puzzling how sending a review unit is considered supporting the views of the reviewer and going "too far".
-                        </p>
-                        <p>
-                            <a href="https://omarchy.org" target="_blank">Omarchy</a>: This is an opinionated distro made by 37Signals for software developers, who got a hate storm due to the main author (DHH)'s opinions on his <a href="https://world.hey.com/dhh" target="_blank">blog</a>. In this case, it was triggered due to a sponsor from <a href="https://x.com/LundukeJournal/status/1971305806646980980" target="_blank">Cloudflare</a>. GNOME and FOSS maintainers were clearly jealous, but instead of getting a professional response up, they did a hate campaign.
-                        </p>
-                        <p>
-                            <a href="https://hypr.land" target="_blank">Hyprland</a>: GNOME folks might criticize authoritarian people, but they (and other groups inside Linux) get very fascist when you mention Hyprland to them. The author of Hyprland, Vaxry, has been a victim of an army of haters that was created and led by members from GNOME, Red Hat, and FreeDesktop, among others. Initially, these groups were critical of Vaxry's poor moderation over the public Hyprland spaces online, but that <a href="https://blog.vaxry.net/articles/2024-fdo-and-redhat" target="_blank">quickly</a> <a href="https://blog.vaxry.net/articles/2024-fdo-and-redhat2" target="_blank">escalated</a> into him getting banned from contributing and participating in FreeDesktop, the group inside Linux that decides common standards that most pieces of software should use. These two situations would later spiral out of control, as they started branding Vaxry as part of the people with Hitler Particles and getting his project censored in multiple places inside the Linux world, with the attacks on Hyprland ramping up as people like DHH start donating to the project.<br>
-                            This is a witch hunt, as people completely unrelated to Linux, like PewDiePie, also got called <a href="https://x.com/LundukeJournal/status/1916526052492390453" target="_blank">names</a> for promoting Hyprland in his Linux video. Furthermore, there has been good <a href="https://crimier.github.io/posts/Framework-Omarchy/" target="_blank">evidence</a> that community moderation in Hyprland has gotten miles better since then. Why are they still attacking Hyprland? Did nobody check in with Vaxry or frequent Hyprland spaces in order to corroborate the state of things?
-                        </p>
-                        <p>
-                            GNOME doesn't understand that software politics are completely different from political politics, as they are more than decided to fight against the US government attacking organizations like ANTIFA by proposing to modify the <a href="https://x.com/LundukeJournal/status/1969038657341284600" target="_blank">Code of Conduct of GNOME</a> in order to make being a part of ANTIFA a requirement to be part of the community. Do I really have to say <a href="/projects/articles/rice-of-babel.html" target="_blank">AGAIN</a> that this could be dangerous enough to make any GNOME contributor a member of a now terrorist organization in the US? What happens to Linux if these actions place someone in jail? What if this gets extended to any GNOME user, making Linux illegal in the US? Anything is possible with these guys in power, and playing into the hateful and reactionary role is exactly what they want. I do not think GNOME is worth using, as many core maintainers are deliberately placing people at risk. STOP with the spiral of hate. If you really want to criticize whoever, put some effort into doing so in a mature and adult way and end the problem; otherwise, you look like narcissistic lunatics who like to feel powerful. For both sides (DHH and Lunduke) (GNOME and affiliates), this cat-and-mouse game will only sink you both. Either you give good constructive criticism like mature or shush. People depend on your work, and this is <b>very</b> dangerous and stupid. GNOME is not doing enough as an organization to protect its image; many of the hateful people's entire online presence revolves around GNOME, making their personal fights affect the reputation of the community project.
-                        </p>
-                    </details>
-                    <p>
-                        Dramatic people aside, GNOME is still authoritarian with how they develop their software. It's a known story how the release of GNOME 3 and the sudden shift in concepts from 2 to 3 nearly killed GNOME, as everyone and their mother started fleeing en masse from that mess, including groups like Mint, Ubuntu, and Budgie developing their own alternatives, something wild considering the limited amount of resources FOSS developers have at their disposition.<br> For example, in the GNOME 3 release, they removed a lot of loved features like the minimize/maximize buttons and the tray icons.<br>
-                        Talking about tray icons, they added them back, but with a <a href="https://www.omglinux.com/gnome-shell-background-apps-ui/" target="_blank">broken implementation</a> that prevents programs like OBS or Discord from working properly. Just like with Apple, they dictate that you listen to their only and holy truth, or you get shoved away. It's also well documented how GNOME uses their unchecked power inside FreeDesktop in order to obstruct the development of <a href="https://x.com/vaxryy/status/1939797344285073823" target="_blank">new Wayland protocols</a> that everyone else needs. They also do this with Libadwaita, check my article, <a
-                            href="/projects/articles/rice-of-babel.html" target="_blank">The Rice of Babel: The Absurdity of Linux
-                        Theming</a>, for more.<br>
-                        GNOME also makes developers do double work, as they are so stubborn that they <a href="https://www.youtube.com/watch?v=Kr6JNyXlu9E" target="_blank">don't</a> support standards like server-side decorations, making programs like games not work correctly in GNOME, forcing developers into doing a GNOME-specific implementation.
-                    </p>
-                    <p>
-                        Another problem is that due to GNOME's lack of features, users are forced to use unstable and slow extensions that break with each update. Ubuntu has a lot of power inside GNOME, but they are forced to play along with this game, making their product more unreliable as things like your tray icons or panel could just... stop working on a "stable" release in a "stable" distro.<br>
-                        Finally, GNOME is bad at programming, and they don't admit that they are bad at programming; instead, they prefer to force their skill issues onto people. Back in 2020, when they were developing the alpha for GTK 4, they found a <a href="https://gitlab.gnome.org/GNOME/gtk/-/issues/2971" target="_blank">critical bug</a> that made scrolling using a touchpad impossible, as the program would have the equivalent of an epilepsy attack, making it impossible to use. 5 years later, multiple core GNOME programs like the file manager use this broken component, and this problem is <a href="https://gitlab.gnome.org/GNOME/gtk/-/issues/5793" target="_blank">still</a> <a href="https://gitlab.gnome.org/GNOME/gtk/-/issues/6344" target="_blank">present</a>. They caught this early in development, but they didn't fix it at the correct time during development. Now you have production-ready laptops that can't scroll correctly on folders with a lot of files. Good job, GNOME.<br>
-                        Do I need to say more? Oh wait, the beta for COSMIC doesn't have this issue, and they developed MOST OF THE GRAPHICAL TOOLKIT FROM SCRATCH. Please, avoid GNOME if you care about your sanity. At the very least, wait until they stop being aggressive against the rest of the Linux ecosystem and until they stop their nonsensical political fights, in a software project...
-                    </p>
-                    <p>
-                        Update: Fedora 43 released today. Among the changes made, they prematurely removed GNOME's <a href="https://fedoraproject.org/wiki/Releases/43/ChangeSet#Wayland-only_GNOME" target="_blank">X11 session</a> packages from the distro (not just the default install). GNOME was not ready for this, as crucial things like games correctly grabbing your mouse on multi-monitor setups in Wayland are currently <a href="https://gitlab.gnome.org/GNOME/mutter/-/issues/3765" target="_blank">broken</a>. Fedora 43 users can't game thanks to the developers rushing the removal of the X11 session. This forces either Fedora to add the packages again or GNOME to place emergency efforts in patching the bug, among other things broken by a lack of the X11 session.<br>
-                        Don't ask me how KDE is able to keep their X11 session working well but GNOME fails horribly, even if they have more contributors than KDE.
-                    </p>
-                    <h6>Joke, Niche and Atomic distros</h6>
-                    <p>
-                        You might have seen joke distros like <a href="https://github.com/Amog-OS/AmogOS" target="_blank">AmogOS</a>, they look very funny, but they are not made for you to be using them as your Windows 10 replacement. If anything, it would be better for you to customize your own Linux on a reliable and secure base.<br>
-                        The same happens with niche distros. You should be careful with obscure operating systems; you never know what could be compromised. Try to stick to distros that have enough eyes and hands on them to be secure.<br>
-                        Finally, avoid Atomic distros. These are some special kinds of Linux that lock down the operating system in order to prevent the user from breaking things. A known example is SteamOS or Bazzite. Atomic distros are useful for products designed to be more limited, like the Steam Deck. If you are using them to replace any normal Linux, you WILL run into problems sooner or later; it's a matter of time until you hit the limiting wall that Atomic distros give you.<br>
-                        If you are considering Bazzite or SteamOS as systems for your computer, take a look at CachyOS or Nobara first; they do essentially the same thing but without taking freedoms away from you.
-                    </p>
-                    <h6>Unupgradable distros</h6>
-                    <p>
-                        There are a few projects out there that use the stable release strategy, but without the ability to upgrade between major versions of the operating system. What this means is that you have to reinstall the whole system every time you want to update to a mayor version. This is massively inconvenient and thankfully very rare. The only two distros that I know with these release methods are elementaryOS and Bodhi Linux. If you use them, know that upgrading will be a pain.
-                    </p>
-                    <h5 id="migration"><a href="#migration">Preparing for migration</a></h5>
-                    <p>
-                        Now that you have decided what Linux to try out, there are a few things you need to know.<br>
-                        First, you should experiment with alternatives to Windows programs before you do anything else with Linux. For example, check that your Microsoft Word documents work with LibreOffice in Windows before installing Linux.<br>
-                        This gets easier/harder depending on what programs you use, and there are things that have no equivalent. Try to prioritize open-source programs when picking alternatives. Just search "XYZ Program alternative" and that will get you far. You could also try to search how WINE works with the programs you need, but only do that as a last resort. Software availability is the biggest problem in getting people to try out Linux. Take it easy; Rome wasn't built in a day.
-                    </p>
-                    <p>
-                        Second, you should get some form of external storage, be it a USB stick, some kind of SD card, maybe a CD or even an external hard drive in a case. You will use this to install Linux. Make sure that it has at least 4 GB of storage; 8 GB is the recommended minimum. In case your storage has 32 GB or more, you should install <a href="https://www.ventoy.net/en/index.html" target="_blank">Ventoy</a> on it, as you will be able to boot from multiple Linux ISOs from a single storage device. Normally, when you prepare one of the storage devices, it nukes everything on the drive and makes it impossible to use it for anything else than as an installer for the particular distro you installed on it.<br>
-                        Thankfully, Linux has support for booting into a Live environment, a read-only copy of the distro of choice. This is massively useful for a lot of tasks, but it's especially good for rescuing files from computers or if you need to use a computer that is not your own (you can take that a step further by installing a read-write Linux into the external storage).<br>
-                        In case you don't have any external storage, you can get away with the advanced features that <a href="https://unetbootin.github.io" target="_blank">UNetbootin</a> gives you by using the Hard Disk Install option, but be careful.
-                    </p>
-                    <p>
-                        Third, get familiar with your computer's BIOS/UEFI screens. Search online for your exact laptop or motherboard name with the "BIOS/UEFI" keyword added. When the computer is booting up, try to hit the key they mention; it could be one of the function keys or something else. It will take you to a scary-looking menu that allows you to play around with many options for your hardware.<br>
-                        In order to boot up any Linux without problems, you need to disable the Secure Boot option and change the boot order, leaving the drive that contains the Linux in first place.<br>
-                        Ah and before shutting down Windows, right before you start the installation, you should hold the Shift key while Windows is shutting down. This will make Windows do a full shutdown instead of doing a fake shutdown thanks to the Fast Startup Windows setting. If you don't do these things, you might have unexpected issues while installing Linux.
-                    </p>
-                    <p>
-                        Fourth, you need backups! You required them yesterday!!! I really hope you had backups before thinking of installing Linux.<br>
-                        Okay, for ideal safety, you need to follow the 4 backups rule. 2 on-site, 1 off-site, and 1 in the cloud (or another off-site). This is hard to achieve and expensive, but it's the ideal. Go ask the <a href="https://www.youtube.com/watch?v=PaPotS8GSpc" target="_blank">South Koreans</a> about their backup strategy...<br>
-                        For just switching your operating system, you require a full backup of your disk; the hard drive should have at the very least the same capacity as the one installed in your system. Depending on how much free space your disk has, you could maybe just use one disk to do the full switch with some smart partitioning work. Still, the best thing is that you go get yourself a good hard drive; aside from Linux, it will be useful as a first step in a good backup strategy.<br> Before formatting that drive, watch <a href="https://youtu.be/_h30HBYxtws?si=6zkLU2Juidyg8VHo" target="_blank">this</a> video in order to learn what file system to use; it will be an important choice that you might have a hard time reverting later.
-                    </p>
-                    <h5 id="filesystems"><a href="#filesystems">Disk partitions & file systems</a></h5>
-                    <p>
-                        Most Linux installers handle file systems for you; they give you a nice and understandable interface with some default options. Mainly some variation of wiping the disk or partitioning it in half (a dual-boot setup, half Windows, half Linux). However, it's not uncommon for this automatic detection to break, throwing new users headfirst into figuring out file systems in an already alien environment. This is especially common for those who want to dual boot.
-                    </p>
-                    <p>
-                        Thankfully, it is easy to trick the installers into doing all the heavy lifting for you in dual-boot scenarios; all you need is to leave an empty partition of your desired size, and the magic will happen.<br>
-                        If the installer of your distro fails to recognize what to do, open the disk manager program; it could be GParted, GNOME Disks, or KDE Partition Manager. On there, you will see something like this:
-                    </p>
-                    <img class="img-resize" src="/media/gparted-main-window.png" title="Main window of GParted" alt="Main window of GParted">
-                    <p>
-                        See that big bar? That's your system's main partition. After you unmount the partition, you will need to resize that big bar, leaving unallocated space to the right of the main partition.<br>
-                        The system installer will use that empty space to infer that you want to use that space to install the distro. Do this just in case the installer acts like an idiot.<br>
-                        <b>Remember that file operations of this caliber can delete all your files; be careful.</b>
-                    </p>
-                    <p>
-                        One of, if not the best tools for real backups is <a href="https://rsync.samba.org" target="_blank">rsync</a>. Thanks to its smart incremental method of copying files, it can do a backup without writing unnecessary information, because it typically only copies the things that changed since the last operation.<br>
-                        Rsync is a CLI program, but it has popular frontend programs like <a href="https://github.com/linuxmint/timeshift" target="_blank">Timeshift</a> or <a href="https://github.com/bit-team/backintime" target="_blank">Back In Time</a>. To understand more about how to use rsync, check out these videos:
-                    <ul class="square">
-                        <ul>
-                            <li><a href="https://www.youtube.com/watch?v=eifQI5uD6VQ" target="_blank" title="Bread on Penguins" alt="Bread on Penguins">a brief guide to rsync ~ Bread on Penguins</a></li>
-                            <li><a href="https://www.youtube.com/watch?v=QKCIi-NxJEo" target="_blank" title="Veronica Explains" alt="Veronica Explains">Using rsync for backups, because it's not shiny and new ~ Veronica Explains</a></li>
-                        </ul>
-                    </ul>
-                    </p>
-                    <p>
-                        Some file systems, like BTRFS, give you the ability to create snapshots of the system. These are some smart behind-the-scenes tricks that allow you to restore the system to a previous state. This advanced feature is not available on most distros out of the box; only a few, like CachyOS or OpenSUSE, give you this power without any setup from the user. Others, like Fedora, ship with BTRFS but without the snapshot feature turned on. It is painful to set up BTRFS manually to enable snapshots, so consider that before picking your distro.
-                    </p>
-                    <h5 id="cli"><a href="#cli">The Command Line is your friend</a></h5>
-                    <p>
-                        Now, if you happen to have some major problem down the road in your Linux of choice, the most likely solution will be found in a command-line interface. You may ask, what is a command-line interface? Pretty simple.<br>
-                        When programmers make their programs, they can pick between showing the user some kind of graphical interface (something that mimics somewhat real button layouts on machinery) or not showing you anything. To be useful, most programs need some form of output, the most basic one being text. Even programs that just live on the computer, without sending anything that the user can see (maybe their work is sending info to another program), still use a text output in some way.<br>
-                        For a very long time, computers were restricted to this basic form of interface (text). Linux originated during this era, and we still have the legacy of the command line among us today. However, old doesn't mean obsolete. There are a ton of programs and ways of working that benefit from this style of interface.
-                    </p>
-                    <p>
-                        The CLI is useful due to how simple it is. All that you need to do is to type the right commands (the equivalent of clicking on things and hitting enter), and stuff will happen. For example, the Linux app stores usually have a text version; the names vary depending on what Linux you are using, but it can be called apt, dnf, pacman, etc.<br>
-                        An example command: if you need to update your system on Ubuntu-based distributions, you would do:<br>
-                    <blockquote>sudo apt update && sudo apt upgrade</blockquote>
-                    What that does is: contacting the server apt uses && (and) download and install available updates that apt found.<br>
-                    That is just a common example; you might want to check out this video to learn more:<br>
-                    <a href="https://www.youtube.com/watch?v=s3ii48qYBxA" target="_blank" title="DistroTube" alt="DistroTube">Beginner's Guide To The Linux Terminal ~ DistroTube</a><br>
-                    Another way of getting information about CLI programs is by running the <b>man</b> command in order to see a program's manual. You also have the fancier <a href="https://tealdeer-rs.github.io/tealdeer/" target="_blank">tldr</a>, which makes the man information more digestible.
-                    </p>
-                    <p>
-                        The point is, the CLI is your friend. It will surprise you to learn just how far we pushed the humble terminal. To start, just search <b>terminal</b> on your Linux's graphical program searcher and start playing! One more thing, terminal programs rarely have mouse support; you will have to type a lot.<br>
-                        Oh, and there are some helper programs that make the default text interface behave nicer; make sure to check out <a href="https://fishshell.com" target="_blank">fish</a> and <a href="https://ohmyz.sh" target="_blank">Oh My Zsh</a>. Time to start playing!
-                    </p>
-                    <h5 id="software"><a href="#software">Managing software & updates</a></h5>
-                    <p>
-                        Tell me, do you know why Windows 10 getting discontinued affects users, even if it still works perfectly fine on any machine that has it installed after the discontinuation date? The software doesn't get updated. You don't get new features, and most importantly, <b>you don't get security updates</b>.<br>
-                        That leaves you open to all kinds of evil people doing funky things with your computer without permission and without pretending they aren't doing those things (I am looking at you, Windows Mac).<br>
-                        Linux's security is truly reliant on software updates. Instead of an antivirus running in the background, you need to keep your programs updated and hope they outpace the malware developers in fixing vulnerabilities before they can try hacking into your system. This method is surprisingly effective; otherwise, we wouldn't have most of the internet running off of Linux machines.
-                    </p>
-                    <p>
-                        There are two ways of managing software in Linux; the first one is with a CLI interface. Thankfully, Arch Linux did the heavy lifting for me; in <a href="https://wiki.archlinux.org/title/Pacman/Rosetta" target="_blank">here</a> you can find a ton of useful commands that will allow you to understand how to manage your software via the CLI, regardless of what Linux you are using.<br>
-                        Graphical interfaces for managing software usually just run those commands behind the scenes, but with extra nice things like seeing the icon, description, and some screenshots of whatever program you want to install. The interesting thing comes when we distance ourselves from the normal package managers distros use.
-                    </p>
-                    <p>
-                        The normal thing is having the distribution manage software for you, but there are multiple third party package managers that get Linux software to another level. These tools work by placing all necessary pieces of the program into a container. What this does is make the program available anywhere that has the third-party store installed, allowing developers to distribute the programs to their users in an easier way, with the only downside being the programs taking up more hard drive space.<br>
-                        There are two main third-party containerized package managers, <a href="https://flatpak.org" target="_blank">Flatpak</a> and <a href="https://snapcraft.io" target="_blank">Snap</a>.<br>
-                        I will not be focusing on Snap because I think its existence is unnecessary.<br>
-                        Flatpak is pretty useful, it allows you to have the latest versions of the software, directly from the developer, but it has some drawbacks. Mainly, it will prevent you from doing things and the programs from working correctly due to the containerization of the software. They label it as a security feature, but it has been proven that it's quite easy to bypass. This "feature" might obstruct programs from getting correctly <a href="https://itsfoss.com/flatpak-app-apply-theme/" target="_blank">themed</a> or by restricting access to the file system, making some programs unable to find files and folders. Thankfully, you can bypass that restriction with the <a href="https://flathub.org/en/apps/com.github.tchx84.Flatseal" target="_blank">Flatseal</a> program, but only use it for that if you really need it.
-                    </p>
-                    <p>
-                        <a href="https://appimage.org" target="_blank">AppImages</a> also exist. They do the same trick of shipping everything the program needs, but without the ability to get updated by a server (Flatpak has an update command) and without containerization. It's a cool technology, but you should treat it as the last option before compiling.
-                    </p>
-                    <p>
-                        Now, for some updating tricks. Always do your backups before updating. Then, don't install software without updating, as it can make your system perform a <a href="https://wiki.garudalinux.org/en/partial-upgrade" target="_blank">partial upgrade</a>, this error could prove deadly. You should also try to keep the power of the computer running if it's updating the Linux Kernel itself, as the system can become unbootable if that process gets interrupted.<br>
-                        Talking about the kernel, you should keep multiple versions installed in your system. Some, like Fedora/Ultramarine, save old versions for a while. Others, like ones based on Arch or Ubuntu, give you multiple kernels that you can pick from in their software stores.
-                    </p>
-                    <p>
-                        Last but not least, things like drivers or codecs could hide in plain sight inside the repositories of software available to your distro. Make sure to check the documentation for drivers/codecs for your hardware and distribution. For example, few distributions install the full <a href="https://en.wikipedia.org/wiki/Vulkan" target="_blank">Vulkan drivers</a> out of the box, or many fail to install complete support for compressed files, like <a href="https://askubuntu.com/questions/592945/failing-to-unrar-files" target="_blank">Ubuntu</a>. There are also some more dangerous (but very useful) third-party repositories for distributions, like <a href="https://launchpad.net/ubuntu/+ppas" target="_blank">PPAs</a> in Ubuntu, <a href="https://rpmfusion.org" target="_blank">RPM Fusion</a> and <a href="https://terra.fyralabs.com" target="_blank">Terra</a> on Fedora, and the <a href="https://aur.archlinux.org" target="_blank">AUR</a> and <a href="https://aur.chaotic.cx" target="_blank">Chaotic AUR</a> on Arch Linux.
-                    </p>
-                    <h5 id="help"><a href="#help">Asking for help</a></h5>
-                    <p>
-                        It's normal to hit a wall from time to time, and you should ask for help. Linux is a community effort. Most distributions have learning resources, forums, and group chats that you can reach out to in times of need.<br>
-                        You have to remember that the most important thing before asking for help is that you try to figure it out yourself. Most programs that fail give you some kind of error message; you could search the error it gives you online and see if anybody else had the same thing.<br>
-                        Another significant action is to search in the program's existing bug reports; maybe it was already fixed, and all you need to do is to update. And if you have no other choice but to ask someone for help, try to give them a detailed description of what went wrong, alongside your basic hardware information (what a program like fastfetch gives to you, alongside what versions in particular of the software you are running). One more thing: you should remember that "this works on my machine" is a very common thing; each setup is unique. You might have the same model as somebody else, but yours could have faulty memory, for example. Expecting software to behave properly is like asking a pig to fly.
-                    </p>
-                    <p>
-                        As time goes on and your Linux knowledge grows, you should try to help people, be they friends, family, or online strangers. The important thing is that the cycle of helping each other has to continue. This is what FOSS and Linux should be: helping each other.
-                    </p>
-                    <h5 id="conclusion"><a href="#conclusion">Conclusion</a></h5>
-                    <p>
-                        It's too early to tell what will happen next in the world of computers. What is certain is that Windows 10 is dead and we will have to deal with it.
-                    </p>
-                    <img class="img-resize" src="/media/win-dead.jpeg" title="https://x.com/Win10EoS/status/1977992775242334640" alt="https://x.com/Win10EoS/status/1977992775242334640">
-                    <p>
-                        With this article, I am just trying to make the dream of more free, private, and sustainable computing closer to a reality, but nothing will change the fact that Microsoft just did something truly horrible. Unlike other versions that had around 15% when they got the EOL, Windows 10 still has around 40% of market share among operating systems, and the number of people left in the dust with this EOL is shocking.<br>
-                        I am also a bit shocked about how few creators used this circumstance to do a video; the biggest one so far was Michael MJD and Rob Braxman Tech's <a href="https://www.youtube.com/watch?v=C44iCr6czAo" target="_blank">video</a>, I was expecting something from LTT or more mainstream technology authors, but mostly radio silence outside of Linux spaces.<br>
-                        I wonder, what will happen to the market share of Windows 10 in the coming days? Will there be any big, bad, nasty, massive attacks? What reports will we get from recyclers and market sellers?
-                    </p>
-                    <p>
-                        I hope this article was helpful. If you have any doubts about Linux or suggestions to make this article better, <a href="/about/socials.html" target="_blank">let me know</a>.<br>
-                    </p>
-                    <p>
-                        See you later!
-                    </p>
-                    <img class="img-resize" src="/media/sailor-moon-smile.gif" title="Yes, I reused the GIF, so what?"
-                        alt="Yes, I reused the GIF, so what?">
-                    </section>
-                    </main>
-                    </div>
-                    <!-- Add any additional Javascript code (<script></script>) here. -->
-                    </body>
 
-                    </html>
+<head>
+  <title>Before You Install Linux - Venus Territory</title>
+  <meta name="description" content="Good things come to those who stay!" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta content="utf-8" http-equiv="encoding" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link href="/style.css?nocache=6" rel="stylesheet" />
+  <script src="/layout.js?nochache=22"></script>
+</head>
+
+<body>
+  <!-- The next line is a skip-to-content link for keyboard users. Do not remove it! -->
+  <a href="#content" id="skip-to-content-link">Skip to content</a>
+  <div class="layout">
+    <noscript>Please enable JavaScript to view this website!</noscript>
+    <main id="content">
+      <section id="serif">
+        <h1>Before You Install Linux</h1>
+        <h5 id="toc"><a href="#toc">Table of Contents</a></h5>
+        <ul class="square">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#distro">What Linux should you use?</a></li>
+          <li><a href="#migration">Preparing for migration</a></li>
+          <li><a href="#filesystems">Disk partitions & file systems</a></li>
+          <li><a href="#cli">The Command Line is your friend</a></li>
+          <li><a href="#software">Managing software & updates</a></li>
+          <li><a href="#help">Asking for help</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+        <h5 id="intro"><a href="#intro">Introduction</a></h5>
+        <p>
+          Our societies are built on trusting each other to function properly. Software is also all about trust. By
+          nature, software is hidden from view; we can't see one of our trustworthy slabs of sand and intuitively
+          understand what it is doing just from looking at it. Only a few select wizards, called programmers, are able
+          to understand the thinking sand.<br> Just like Prometheus did with fire, programmers gave us the gift of being
+          able to use computers as tools without the need of understanding the arcane language of code.<br>
+          But... What would happen if Prometheus was evil? Well, more than evil, greedy. What if Prometheus desired to
+          keep a chain on anyone who used fire, in order to serve them ads in order to enrich himself and the Olympian
+          gods? Unfortunately, that is what Microsoft is doing.
+        </p>
+        <p>
+          We trusted that Microsoft would treat us with respect, but their <a
+            href="https://www.tomshardware.com/software/windows/microsofts-draconian-windows-11-restrictions-will-send-an-estimated-240-million-pcs-to-the-landfill-when-windows-10-hits-end-of-life-in-2025"
+            target="_blank">actions</a> say <a
+            href="https://www.windowslatest.com/2025/10/07/microsoft-confirms-windows-11-to-require-microsoft-account-internet-during-oobe-tested/"
+            target="_blank">otherwise</a>. Microsoft is transforming millions of fully capable computers into e-waste;
+          at the same time, they are removing workarounds to keep some of these systems working without the need for you
+          to put on the cloud chain.<br>
+          And if you happen to need even more reasons to dislike Microsoft and Windows 11, take a look at this
+          video:<br>
+          <a href="https://www.youtube.com/watch?v=eZ5R5vWnnAY" target="_blank" title="Zac Of All Tech"
+            alt="Zac Of All Tech">11 Reasons To Leave Windows 11 ~ Zac Of All Tech</a>
+        </p>
+        <p>
+          You surely saw these actions and decided that enough was enough. You probably decided or considered that using
+          a Linux operating system in order to give your computer secure and offline-capable software that would also
+          protect you from Microsoft's planned obsolescence was a good idea. And then you hit a wall. <i>How do I do all
+            of this???</i><br>
+          Don't worry, Linux is intimidating, and new users have a lot to learn. In this article, I will share some
+          knowledge that I hope will save you time and teach you a few useful tricks.
+        </p>
+        <p>
+          This is not an installation guide but a complement to existing installation guides and tutorials. It will make
+          you more ready to face off against the challenge of installing Linux, as I will cover things that these
+          install guides often avoid mentioning, as they don't want to info dump you and scare you away, even if it
+          increases the risk of things going wrong.
+        </p>
+        <p>
+          I recommend that you check out any of the following videos and their authors; these are by far the best guides
+          on how to get started with Linux (includes a few on Win10's end of support):
+        </p>
+        <ul class="square">
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=gRjD_XJuo7g" target="_blank" title="Salem Techsperts"
+                alt="Salem Techsperts">$70 "Obsolete" ThinkPads - More Repairable, Reliable, and CHEAPER Than a Brand
+                New Laptop ~ Salem Techsperts</a></li>
+            <li><a href="https://www.youtube.com/watch?v=e2wB9r1SYrY" target="_blank" title="ExplainingComputers"
+                alt="ExplainingComputers">Choosing Your First Linux Distro ~ ExplainingComputers</a></li>
+            <li><a href="https://www.youtube.com/watch?v=FPYF5tKyrLk" target="_blank" title="Mental Outlaw"
+                alt="Mental Outlaw">How To Switch to Linux (From Windows) ~ Mental Outlaw</a></li>
+            <li><a href="https://www.youtube.com/@robbraxmantech" target="_blank" title="Rob Braxman Tech"
+                alt="Rob Braxman Tech">Rob Braxman Tech's recent videos</a></li>
+            <li><a href="https://www.youtube.com/watch?v=n8vmXvoVjZw" target="_blank" title="ExplainingComputers"
+                alt="ExplainingComputers">Switching to Linux: A Beginner’s Guide ~ ExplainingComputers</a></li>
+            <li><a href="https://www.youtube.com/watch?v=gRjD_XJuo7g" target="_blank" title="ExplainingComputers"
+                alt="ExplainingComputers">Windows 10: Four Months to Go ~ ExplainingComputers</a></li>
+            <li><a href="https://www.youtube.com/watch?v=GP931lJg7X8" target="_blank" title="Michael MJD"
+                alt="Michael MJD">Windows 10 is Dead... Now What? ~ Michael MJD</a></li>
+            <li><a href="https://www.youtube.com/watch?v=0oox87gARjE" target="_blank" title="The Linux Experiment"
+                alt="The Linux Experiment">Windows 10 is done, and this is a bad thing for everyone (not just Windows
+                users) ~ The Linux Experiment</a></li>
+            <li><a href="https://www.youtube.com/watch?v=j4_4x0wS2bs" target="_blank" title="Brodie Robertson"
+                alt="Brodie Robertson">Windows 10 Is Over, So What Now!! ~ Brodie Robertson</a></li>
+          </ul>
+        </ul>
+        <p>
+          If you happen to get confused with some technical terms used here, I recommend that you search online what
+          they mean. This is one of the few particular cases where one of the best options would be asking your AI of
+          choice, as they have very good training data on FOSS, and they should be used as a better Google (very ironic
+          that Google's AI preview is 10x worse than asking an AI directly), instead of being a slop machine. Follow
+          your ethics for research, but I don't have the time to explain the terms. I recommend an AI for this because
+          there are some terms that you won't find in Linux wikis.
+        </p>
+        <h5 id="distro"><a href="#distro">What Linux should you use?</a></h5>
+        <p>
+          This section is extremely subjective to my personal opinions and experiences using Linux. I think this is the
+          truth, but everyone is different, and we must respect that. What I think is best for you could only be the
+          best for me. To reach your own truth, you must experiment. I am just advising you in order to possibly save
+          you time, as I meditated a ton about what would be best for new users, and I am confident enough on my
+          opinions to say it out loud in here.<br>
+        <p>
+          One of, if not the most common question that new users make when they switch to Linux is "What Linux should I
+          use?" This is normal; after all, there are more than 100 active and popular Linux versions, all more than
+          valid choices. You even have popular sites like <a href="https://distrowatch.com"
+            target="_blank">DistroWatch</a>, tailor-made to list out and discuss the myriad of Linux distros/versions
+          reasonably. That is just how <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software"
+            target="_blank">FOSS</a> works; everyone can make and share their own variations on Linux.<br>
+          This means that you naturally have different versions designed to cater to different needs in the technology
+          space. Linux is especially flexible; you can even use it on phones! (Android uses a version of Linux to work).
+          I will assume that you require Linux to replace the obsolete Windows 10 running on the machine you want to
+          target. Meaning, you need a desktop/laptop OS that is ready to handle day-to-day tasks of all kinds.
+        </p>
+        <p>
+          Thankfully for us, the choice is actually pretty simple. There are a few Linux distributions that fill the
+          niche perfectly, with some strengths and weaknesses that we must take into account, depending on what we want
+          to accomplish.<br>
+        </p>
+        <p>
+          First, all the relevant Linux distributions provide you with a method to handle software in your system, be it
+          installing things like a web browser or keeping the system up to date, in order to prevent security
+          vulnerabilities. I will detail this better at the <a href="#software">Managing software & updates</a> section,
+          but I need to explain a part first so we can decide better.<br>
+          The program that helps you in managing the software in your system is called a <a
+            href="https://en.wikipedia.org/wiki/Package_manager" target="_blank">package manager</a>, for example, the
+          Google Play Store is a package manager.<br>
+          For comparison, the tradition in Windows is to skip all package managers; instead, users go and hunt the
+          programs online. This method doesn't even guarantee you the ability to update your programs, being a huge
+          security risk. However, if you use the Microsoft Store, you get the latest version of whatever program you
+          need. Windows itself gives you the latest system updates for whatever version you are running (Windows 11 25H2
+          for example), and at one point it should ask you to update to the next minor version (Windows 11 26H2?) and
+          eventually a full system upgrade when Windows 12 comes out.<br>
+        </p>
+        <p>
+          Most Linux distributions follow a similar kind of strategy with their software; they call it a <b>stable/fixed
+            release</b>. However, unlike Windows' fixed releases, the system's core software and whatever you install
+          via the package manager are interconnected. For example, the Dolphin file manager program and VLC share things
+          in common inside their guts; if you try to update VLC without taking into account the shared guts with
+          Dolphin, then Dolphin could break. Not all programs share their engines with each other, but it's common
+          enough that all stable release distros update both types of software (core system & non-essentials) at the
+          same time.<br>
+          To guarantee a more reliable experience, stable release distributions place some kind of time freeze on the
+          software. For example, Ubuntu 24.04 froze their software versions at what was available and stable around
+          April 2024, with the exception of security updates. To get a new version introducing features in Ubuntu, you
+          need to wait until the next freeze and release happens, either 6 months or 2 years, depending on the version
+          of Ubuntu.<br>
+          Yes, this means that things like the drivers can get stuck at old versions, and very new computers can have
+          problems with running adequately in stable releases, but don't worry, most distributions give you some way of
+          getting more modern drivers.
+        </p>
+        <p>
+          The other type of strategy for software distribution is called a <b>rolling release</b>. They keep the
+          software in your system at the latest possible version at all times. For example, as soon as VLC releases a
+          new version, the distribution maintainers update their Linux so it gives it to you as soon as possible. This
+          also includes core system packages.<br>
+          Rolling releases do minimal and near real-time testing for all components in your system. You are placing your
+          trust in the individual developers of the programs you use; you trust that VLC will do a good job, and you get
+          rewarded with all the nice new features quickly. These distros expect you to update frequently, usually around
+          a month being the longest you can wait without increasing the risk of problems when updating.
+        </p>
+        <p>
+          It's crucial for you to understand the distribution's release model before committing to an install. It would
+          be unwise for someone with little free time to install a rolling release Linux. Likewise, installing a stable
+          release Linux would be dumb for a software developer who needs the latest and greatest updates quickly.<br>
+          This difference forces me to recommend different options depending on what release schedule works the best for
+          you. There are ways to get around the release schedule, but they will get explained at <a
+            href="#software">Managing software & updates</a>.
+        </p>
+        <h6>Stable Release Distros</h6>
+        <h6><a href="https://linuxmint.com" target="_blank">Linux Mint</a></h6>
+        <br>
+        <img class="img-resize" src="/media/cinnamon.png" title="Linux Mint Cinnamon's desktop"
+          alt="Linux Mint Cinnamon's desktop">
+        <p>
+          To me, Mint is the undisputed king of Linux. I have been a Linux user since 2017 (not a full 8 years). Mint
+          was my first distribution. I have been following its progress, and they never did something I would consider
+          awful. Mint managed to have longevity in an industry known for being volatile. If you can't tell, I have a
+          strong bias in favor of Mint.<br>
+          However, tons of people with good reputation inside Linux spaces back my favoritism; it's clear they are doing
+          something right. And well, what makes them great?
+        </p>
+        <p>
+          For starters, Mint gives you multiple versions, depending on what you need out of your computer. The flagship
+          is the version with the Cinnamon desktop environment, but they do offer the MATE and Xfce desktops as
+          alternatives for systems with more constrained resources and a Debian based version.
+        </p>
+        <p>
+          Mint follows the release cycle of <a href="https://en.wikipedia.org/wiki/Package_manager"
+            target="_blank">Ubuntu LTS</a>. That is, one feature update every 2 years. However, Mint gives minor
+          releases every 6 months or so that update certain key components of the distro.<br>
+          They also make the Cinnamon DE, an easy-to-use, stable, and feature-filled desktop that has a ton of small
+          details that make it a very pleasant experience.
+        </p>
+        <p>
+          Linux Mint comes equipped with a welcome program that has useful links to many essentials, like introductions
+          to many system management programs that come with Mint or links to Mint's forums. If you take the time to read
+          the welcome message, you will set your system up for success.<br>
+          It also comes packed with a full suite of programs. Media players, browsers, office suites, and even their own
+          set of programs (x-apps), including the backup utility Timeshift and their IPTV player Hypnotix!
+        </p>
+        <p>
+          Another thing they do well is hardware support; they include a driver manager program, and their update
+          manager has your back. Updating is easy, and they facilitate things like making the downloads of the updates
+          faster and installing different Linux kernels if you happen to need them.<br>
+          Mint also ships with a fast and stable graphical software store that is easy to understand. This is one of the
+          very few distributions that are so well made you don't even need to touch the command line interface. Hell,
+          they even take care of theming the programs for you!
+        </p>
+        <p>
+          Last but not least, Linux Mint uses the X11 display server (a program that allows Linux to show things on your
+          screen); you might need to reconsider using it if you have a multi-monitor setup (especially if you are mixing
+          monitor refresh rates and screen resolutions). Mint does have the more modern Wayland display server as an
+          option to fix some of these problems, but Mint's port is still in heavy development, and it could make your
+          system unstable.
+        </p>
+        <h6><a href="https://system76.com/pop/" target="_blank">Pop!_OS</a></h6>
+        <br>
+        <img class="img-resize" src="/media/popos.png" title="Pop!_OS' COSMIC desktop" alt="Pop!_OS' COSMIC desktop">
+        <p>
+          Pop is in a weird state right now, as <a href="https://system76.com" target="_blank">System76</a> (the distro
+          authors) did a major rework very recently. They just released the Pop 24.04 Beta with their brand-new COSMIC
+          desktop environment.<br>
+          Before this, they offered a customized <a href="https://www.gnome.org" target="_blank">GNOME</a> desktop
+          experience, built on top of every release of Ubuntu (LTS and normal releases), but since they started the
+          development of their own desktop, it seems like they moved to just using the LTS versions as a base. They do
+          give out feature updates for certain key programs, just like Mint.<br>
+        </p>
+        <p>
+          You may wonder why I bring up Pop, even if it's clearly in an unstable state right now. Well, the benefits it
+          brings are unique enough that it deserves a mention here.<br>
+          First, they really care about their users. Pop had big ambitions with their GNOME modifications, but due to
+          the unstable nature of GNOME extensions, their work was hard to maintain as it would break with every version
+          upgrade, making them stuck in a perpetual cycle of keeping things running without being able to bring
+          improvements to their distro.<br>
+          This is <a href="https://www.zdnet.com/article/linux-mints-cinnamon-a-gnome-3-x-shell-fork/"
+            target="_blank">not the first time</a> that GNOME's modus operandi gets in the way of others in the Linux
+          world; Mint had to scrap the idea of maintaining their Cinnamon desktop as a set of extensions that run on top
+          of GNOME, instead making it a separate thing.<br>
+          System76 just released the first beta for COSMIC. I have been using it, and aside from a few minor bugs, it
+          has been surprisingly reliable and a very needed breath of fresh air in Linux.
+        </p>
+        <p>
+          The main reason to use Pop, and by extension COSMIC, is the advanced window management features. The Wayland
+          display server makes COSMIC capable of using multiple monitors effectively thanks to the superb scaling and
+          good support for programs running on X11 for legacy reasons. It also gives you granular control over the <a
+            href="https://help.ubuntu.com/stable/ubuntu-help/shell-workspaces.html.en" target="_blank">workspaces</a> in
+          your system. COSMIC is the only desktop that allows you to tie a monitor to a workspace, allowing you to keep
+          Monitor A in workspace 1 and Monitor B in workspace 2. In the rest of the desktops, if you switch to workspace
+          2, it switches on all the screens in your system, making multiple monitors more of a hassle than an
+          advantage.<br>
+          COSMIC is also the only one that treats normal floating windows and tiled windows (when windows get
+          automatically adjusted in a mosaic that maximizes screen real estate usage) as first-class citizens; both get
+          equal amounts of care and love. You can also tell a workspace to decide between floating or tiling, and don't
+          get me started on things like pinning workspaces. You can do very complex setups.
+        </p>
+        <p>
+          COSMIC aside, System76 takes care of giving you things like a backup built into the system that lets you
+          reinstall the system in case something goes wrong. They take a more minimalistic approach with what they give
+          you, as this is aimed at more advanced users, but with the COSMIC Store, you should be able to get all the
+          software that you need. You also get a welcome program that will help you set up your system the first time
+          you boot it.<br>
+          I advise you to be careful with Pop 24.04, as it's still in beta, but you know, System76 needs to sell laptops
+          to survive; they need to make sure that Pop and COSMIC are up to their quality standards. Check well that
+          everything works before installing, but you are in good hands if you go with this distro.
+        </p>
+        <h6><a href="https://ultramarine-linux.org" target="_blank">Ultramarine Linux</a></h6>
+        <br>
+        <img class="img-resize" src="/media/ultramarine-plasma.webp" title="Ultramarine with KDE Plasma"
+          alt="Ultramarine with KDE Plasma">
+        <p>
+          Do you remember what I told you about the types of release cycles? Well, Ultramarine has a weird one. They
+          follow a 12-month release schedule, with a new version getting released every 6 months, giving you a bit of
+          time to wait before updating to the next major release.<br>
+          Unlike Mint and Pop (both Ubuntu derivatives), which do a near full freeze of feature updates, in Ultramarine
+          you get curated feature updates. They do a bit of testing before giving out updates, but the pace of the
+          distribution is quick enough that you may think you are in a rolling release. By nature, this makes
+          Ultramarine more unstable than something like Mint, and it can start outpacing people's ability to keep up
+          with the update cadence. For example, Ultramarine is not the best option for a boring bureaucratic office
+          trying to replace Windows 10.<br>
+          Ultramarine starts to shine as a good option when we take a look at the things they modify from their base,
+          Fedora. They do things like providing you with complete codecs and expanding the list of software you can
+          install.<br>
+          The distro expects more skilled users than Mint; just like with Pop, the default software selection is more
+          minimal but still sufficient for a lot of daily tasks. You get a software store and a welcome configuration
+          helper the first time you boot it.
+        </p>
+        <p>
+          Ultramarine ships with multiple editions. Flagship (Budgie), GNOME, Xfce, and KDE Plasma. Out of these, the
+          more reliable are Xfce (useful for modest systems) and Plasma. They also provide you with more particular
+          versions made to work with niche hardware like ARM computers and the Microsoft Surface. Another cool thing is
+          their migration program, which can bring most of the nice things to existing Fedora installs.<br>
+          Their documentation is also pretty good; they are open to informing you of tips and tricks and explaining how
+          parts of the distro work.<br>
+          This distro is a great choice for those who need more up-to-date software while keeping things as
+          user-friendly and stable as possible.
+        </p>
+        <h6><a href="https://loc-os.com" target="_blank">Loc-OS Linux</a></h6>
+        <br>
+        <img class="img-resize" src="/media/loc-os.png" title="Loc-OS LXDE" alt="Loc-OS LXDE">
+        <p>
+          This is more of an honorable mention, as it covers a very important niche. Loc-OS is a distribution designed
+          to be as lightweight as possible, to the point it can bring a new life to computers with extremely limited
+          system resources, like old netbooks with 1 GB of RAM. The usual thing is that lightweight distros rely on
+          harder-to-understand tools that are light on resources. Loc-OS finds a sweet spot of being user friendly and
+          light.<br>
+          You will find Loc-OS more useful if you know Spanish, as this project is more focused on the Spanish side of
+          Linux; for example, the author does a lot of educational videos about Loc-OS on his YouTube. Loc-OS gives you
+          access to Debian/Ubuntu's software availability, and they have their own additions to bring you things like a
+          lightweight browser or some games. You could take the lightness even further by checking out other more
+          advanced projects that Nico made, for example <a href="https://flinux-distro.sourceforge.io"
+            target="_blank">FLinux</a>.<br>
+          Just be ready for things to be rougher around the edges, but if you are trying to revive old hardware, I
+          believe you are prepared.
+        </p>
+        <h6>Rolling Release Distros</h6>
+        <p>
+          Before we start, I need to tell you the truth. The explanation of stable releases I gave you before is
+          somewhat misleading.<br>
+          Did you notice that I called them fixed? The more appropriate name should be <b>fixed release</b>, not stable
+          release. Why? Well, the freeze that is applied to them also counts software bugs in. What they value is
+          predictability; if the frozen version of VLC has a software bug, they will not fix the problem unless it can
+          cause a security risk. This is only a concern in Ubuntu/Debian-based distros or ones that follow the exact
+          same strategy as them. If you happen to find a bug on one of those, it will keep you company for the 2 years
+          the distro is installed in your machine, even if the solution to the issue is already available in the
+          original program.<br>
+          Some people might even argue that freezing the software only adds more strain to the software developers, as
+          they have to deal with supporting old, outdated versions that are provided to millions, and they can't fix the
+          problems due to how these distributions work. If you can deal with the more frequent updating, using a faster
+          fixed release like Ultramarine or one of the rolling ones is the best idea.
+        </p>
+        <h6><a href="https://endeavouros.com" target="_blank">EndeavourOS</a></h6>
+        <br>
+        <img class="img-resize" src="/media/Mercury_Neo-LiveSession.webp" title="EndeavourOS KDE Plasma"
+          alt="EndeavourOS KDE Plasma">
+        <p>
+          Endeavour is our first rolling distro. Their focus is on providing you with a skeleton, a good base for you to
+          build your own Linux. They provide you with a minimal list of programs when you install it; for example, the
+          ever-present LibreOffice is missing.<br>
+          When you go and install Endeavour, they will give you a list of the most popular desktops, making it a
+          customizable experience from the start.
+        </p>
+        <p>
+          Endeavour provides you with a welcome program with a lot of very useful shortcuts, from updating the system to
+          enabling Bluetooth and a curated list of programs that you can install. It's very important that you don't
+          skip the welcome programs.<br>
+          This distro is the first one to be designed to be more command-line oriented; among the ones I mentioned, it's
+          the one with the smallest amount of graphical utilities. However, that doesn't stop them from providing you
+          with useful resources; you better check out their wiki and forums!
+        </p>
+        <h6><a href="https://garudalinux.org" target="_blank">Garuda Linux</a></h6>
+        <br>
+        <img class="img-resize" src="/media/garuda-dr460nized.webp" title="Garuda Dr460nized" alt="Garuda Dr460nized">
+        <p>
+          Both Garuda and Endeavour use the same base, <a href="https://archlinux.org" target="_blank">Arch Linux</a>,
+          but they couldn't be more different from each other.<br>
+          Garuda is focused on providing the user with a ton of useful utilities for system maintenance; think of what
+          Mint or Endeavour offer in graphical system utilities, cranked to the maximum. Among the features they bring,
+          my favorites are the out-of-the-box system snapshots (every time you update the system, it creates a backup)
+          and the extra software their ChaoticAUR source brings to Garuda.
+        </p>
+        <p>
+          They also play with the build-your-own-thing idea, but it holds your hand more. The first time you install it,
+          it asks you to update the system, and it directly informs you about curated software you can install to make
+          things more complete.<br>
+          Unlike Endeavour, which lets you customize things while installing, with Garuda you need to choose what
+          edition you will be using before downloading the distribution. I recommend that you stick with the Cinnamon or
+          Xfce version, as the KDE versions have an overwhelming appearance.<br>
+          Garuda is more opinionated (not as opinionated as Omarchy, thankfully), but if you like their opinions, you
+          will be in good hands. Also, you should know that they are a bit lacking in documentation, you might need to
+          ask more in forums than with other options.
+        </p>
+        <h6><a href="https://cachyos.org" target="_blank">CachyOS</a></h6>
+        <br>
+        <img class="img-resize" src="/media/cachyos.png" title="CachyOS with KDE Plasma" alt="CachyOS with KDE Plasma">
+        <p>
+          We reach the final recommendation, CachyOS. This distro is very focused on performance. They put in the effort
+          that others don't, as they do all sorts of smart software tricks that give your programs small performance
+          boosts. The worst-case scenario is that you don't notice it, but on some setups it can give you free
+          performance.<br>
+          Software tricks aside, they have excellent documentation on the things they modify, and they give you a few
+          useful graphical tools for system management, not on the level of Garuda, but more than enough for comfortable
+          use.<br>
+          One of their strengths is just how powerful the installer is; you can pick between the popular desktops, and
+          they facilitate the installation of more rare window managers. But in general, the whole point is in giving
+          you a slightly more friendly EndeavourOS with a ton of performance settings turned on. It's hard to notice how
+          much they do for you with the optimizations without a deeper understanding of how software gets packaged, but
+          they had to go one by one for most of the programs in your system (including small ones you never see or
+          interact with), and they repeated the process for around 4 different kinds of CPUs.<br>
+          They also give you a version compatible with devices in the style of the Steam Deck, quite nice!
+        </p>
+        <h6>What should you avoid?</h6>
+        <p>
+          The big variety in the Linux space means that things are not created equal. There are things that you should
+          avoid using. These are a few things that, in my opinion, you should avoid.
+        </p>
+        <h6><a href="https://ubuntu.com/desktop" target="_blank">Non LTS Ubuntu</a></h6>
+        <br>
+        <img class="img-resize" src="/media/ubuntu.png" title="Ubuntu 25.10" alt="Ubuntu 25.10">
+        <p>
+          Ubuntu has a very strong reputation thanks to the fact that they were the pioneers in giving users an
+          easy-to-use distribution; however, that Ubuntu is long dead, and there have been multiple dramas that prove it
+          is an unstable and even dangerous product. This is especially prominent on the releases made every 6 months,
+          as they are used for internal testing but are branded as production-ready. Just now, with the 25.10 release,
+          Ubuntu <a href="https://news.itsfoss.com/ubuntu-25-10-flatpak-bug/" target="_blank">broke Flatpaks</a>. And on
+          the 23.04 release, they <a href="https://www.omgubuntu.co.uk/2023/04/appimages-libfuse2-ubuntu-23-04"
+            target="_blank">broke Appimages</a>. Isn't it strange how these moves were made at the exact same time that
+          Ubuntu started <a href="https://www.omgubuntu.co.uk/2024/01/valve-dont-recommend-ubuntu-steam-snap"
+            target="_blank">enforcing</a> <a href="https://blog.linuxmint.com/?p=3766" target="_blank">Snap</a> <a
+            href="https://news.itsfoss.com/mozilla-firefox-deb/" target="_blank">packages</a> on users?<br>
+          Ubuntu also makes dangerous experimental changes, like getting a sponsor from Amazon and adding a <a
+            href="https://arstechnica.com/information-technology/2012/12/richard-stallman-calls-ubuntu-spyware-because-it-tracks-searches/"
+            target="_blank">spyware</a> link right into the launcher. They also <a
+            href="https://itsfoss.com/ubuntu-unity-shutdown/" target="_blank">discontinued</a> the Unity desktop they
+          developed, alongside their Ubuntu Phone. Last but not least, they added the still-in-development <a
+            href="https://www.phoronix.com/news/Ubuntu-25.10-Coreutils-Makeself" target="_blank">Rust Coreutils</a> into
+          25.10, something that could be dangerous to users who depend on the stable & original C language versions.
+        </p>
+        <p>
+          Update 1: Xubuntu got <a href="https://www.youtube.com/watch?v=8CjVOuwVbqA" target="_blank">hacked</a> and
+          they started distributing malware. What a release huh...<br>
+          Update 2: Rust Coreutils <a href="https://www.phoronix.com/news/Ubuntu-25.10-Broken-Upgrade"
+            target="_blank">broke</a> Ubuntu's unattended upgrades mechanism.
+        </p>
+        <p>
+          Unless you install one of the LTS releases or a derivative that protects you from the bad stuff, you should
+          avoid Ubuntu.
+        </p>
+        <h6><a href="https://www.gnome.org" target="_blank">GNOME</a></h6>
+        <br>
+        <img class="img-resize" src="/media/ultramarine-gnome.webp" title="Ultramarine with GNOME"
+          alt="Ultramarine with GNOME">
+        <p>
+          The main reason to avoid GNOME, especially for new users, is the extravagant style the user interface uses.
+          They created a new concept for how desktop computers should work, for better or worse. Unfortunately,
+          reinventing the wheel at this stage is something few people are able to tolerate; their brains lock down and
+          they refuse to even try to understand what is in front of them. I expect this to be the case for most people
+          reading this.<br>
+          If you feel brave enough to try GNOME, give it a go. Watch this <a
+            href="https://www.youtube.com/watch?v=H4IhGxmdke0" target="_blank">first</a>. However, there are more
+          reasons over why I don't recommend GNOME.
+        </p>
+        <details>
+          <summary id="gnome-drama"><b>GNOME's political people drama</b></summary>
+          <p>
+            Update: GNOME Foundation director, Cassidy James, displayed <a
+              href="https://community.frame.work/t/framework-supporting-far-right-racists/75986/1835"
+              target="_blank">professionalism</a>. I hope this good behavior continues and he gets the loudmouths under
+            control.
+          </p>
+          <p>
+            First, GNOME is unprofessional; tons of important maintainers (with some outside GNOME) are on a hate
+            campaign against people who they deem as fascists, more often than not calling for these people to get
+            harmed, just because they disagree with their opinions. All of these situations are still ongoing; but the
+            cycle of hate and violence keeps growing.
+          </p>
+          <p>
+            Examples include:
+          </p>
+          <p>
+            <a href="https://lunduke.com" target="_blank">Bryan Lunduke</a>: Who they attack for being a yellow
+            journalist who is more on the conservative side of politics and being a Jew (I get it, Gaza sucks, but come
+            on, like he was the author of the war), just go check his posts and you will see it. It doesn't matter if he
+            was an important OpenSUSE contributor and a valuable critical voice in the Linux world. Lunduke is easy to
+            dislike, but that distaste turning into a "you can't mention his name, and if you do, we will ban you from
+            spaces we control" is wild to me.
+          </p>
+          <p>
+            <a href="https://frame.work" target="_blank">Framework</a>: Who they attacked for being a <a
+              href="https://x.com/LundukeJournal/status/1976160144191894003" target="_blank">neutral company</a>, as
+            they used distros they deem controversial in their marketing, alongside sending DHH a review unit. These
+            actions are placing one of the very few hardware developers who are committed to recyclable and modular
+            hardware at risk. GNOME and some FOSS contributors think that Framework has <a
+              href="https://x.com/LundukeJournal/status/1976046474698912019" target="_blank">Hitler Particles</a>, all
+            because they used the wrong Linux!<br>
+            I get it, you might dislike this direction from Framework, but why is the criticism so extreme? Answering
+            with violence creates more violence. Thankfully, the situation has been contained to a <a
+              href="https://community.frame.work/t/framework-supporting-far-right-racists/75986" target="_blank">forum
+              post</a>. I encourage you to go read it if you really want a full picture of the situation. Framework has
+            now clarified that Omarchy (DHH's distro) didn't get sponsored; they just sent a review unit to DHH,
+            something reasonable after seeing the <a href="https://x.com/dhh/status/1978540285853409706"
+              target="_blank">download numbers</a>. It's truly puzzling how sending a review unit is considered
+            supporting the views of the reviewer and going "too far".
+          </p>
+          <p>
+            <a href="https://omarchy.org" target="_blank">Omarchy</a>: This is an opinionated distro made by 37Signals
+            for software developers, who got a hate storm due to the main author (DHH)'s opinions on his <a
+              href="https://world.hey.com/dhh" target="_blank">blog</a>. In this case, it was triggered due to a sponsor
+            from <a href="https://x.com/LundukeJournal/status/1971305806646980980" target="_blank">Cloudflare</a>. GNOME
+            and FOSS maintainers were clearly jealous, but instead of getting a professional response up, they did a
+            hate campaign.
+          </p>
+          <p>
+            <a href="https://hypr.land" target="_blank">Hyprland</a>: GNOME folks might criticize authoritarian people,
+            but they (and other groups inside Linux) get very fascist when you mention Hyprland to them. The author of
+            Hyprland, Vaxry, has been a victim of an army of haters that was created and led by members from GNOME, Red
+            Hat, and FreeDesktop, among others. Initially, these groups were critical of Vaxry's poor moderation over
+            the public Hyprland spaces online, but that <a href="https://blog.vaxry.net/articles/2024-fdo-and-redhat"
+              target="_blank">quickly</a> <a href="https://blog.vaxry.net/articles/2024-fdo-and-redhat2"
+              target="_blank">escalated</a> into him getting banned from contributing and participating in FreeDesktop,
+            the group inside Linux that decides common standards that most pieces of software should use. These two
+            situations would later spiral out of control, as they started branding Vaxry as part of the people with
+            Hitler Particles and getting his project censored in multiple places inside the Linux world, with the
+            attacks on Hyprland ramping up as people like DHH start donating to the project.<br>
+            This is a witch hunt, as people completely unrelated to Linux, like PewDiePie, also got called <a
+              href="https://x.com/LundukeJournal/status/1916526052492390453" target="_blank">names</a> for promoting
+            Hyprland in his Linux video. Furthermore, there has been good <a
+              href="https://crimier.github.io/posts/Framework-Omarchy/" target="_blank">evidence</a> that community
+            moderation in Hyprland has gotten miles better since then. Why are they still attacking Hyprland? Did nobody
+            check in with Vaxry or frequent Hyprland spaces in order to corroborate the state of things?
+          </p>
+          <p>
+            GNOME doesn't understand that software politics are completely different from political politics, as they
+            are more than decided to fight against the US government attacking organizations like ANTIFA by proposing to
+            modify the <a href="https://x.com/LundukeJournal/status/1969038657341284600" target="_blank">Code of Conduct
+              of GNOME</a> in order to make being a part of ANTIFA a requirement to be part of the community. Do I
+            really have to say <a href="/projects/articles/rice-of-babel.html" target="_blank">AGAIN</a> that this could
+            be dangerous enough to make any GNOME contributor a member of a now terrorist organization in the US? What
+            happens to Linux if these actions place someone in jail? What if this gets extended to any GNOME user,
+            making Linux illegal in the US? Anything is possible with these guys in power, and playing into the hateful
+            and reactionary role is exactly what they want. I do not think GNOME is worth using, as many core
+            maintainers are deliberately placing people at risk. STOP with the spiral of hate. If you really want to
+            criticize whoever, put some effort into doing so in a mature and adult way and end the problem; otherwise,
+            you look like narcissistic lunatics who like to feel powerful. For both sides (DHH and Lunduke) (GNOME and
+            affiliates), this cat-and-mouse game will only sink you both. Either you give good constructive criticism
+            like mature or shush. People depend on your work, and this is <b>very</b> dangerous and stupid. GNOME is not
+            doing enough as an organization to protect its image; many of the hateful people's entire online presence
+            revolves around GNOME, making their personal fights affect the reputation of the community project.
+          </p>
+        </details>
+        <p>
+          Dramatic people aside, GNOME is still authoritarian with how they develop their software. It's a known story
+          how the release of GNOME 3 and the sudden shift in concepts from 2 to 3 nearly killed GNOME, as everyone and
+          their mother started fleeing en masse from that mess, including groups like Mint, Ubuntu, and Budgie
+          developing their own alternatives, something wild considering the limited amount of resources FOSS developers
+          have at their disposition.<br> For example, in the GNOME 3 release, they removed a lot of loved features like
+          the minimize/maximize buttons and the tray icons.<br>
+          Talking about tray icons, they added them back, but with a <a
+            href="https://www.omglinux.com/gnome-shell-background-apps-ui/" target="_blank">broken implementation</a>
+          that prevents programs like OBS or Discord from working properly. Just like with Apple, they dictate that you
+          listen to their only and holy truth, or you get shoved away. It's also well documented how GNOME uses their
+          unchecked power inside FreeDesktop in order to obstruct the development of <a
+            href="https://x.com/vaxryy/status/1939797344285073823" target="_blank">new Wayland protocols</a> that
+          everyone else needs. They also do this with Libadwaita, check my article, <a
+            href="/projects/articles/rice-of-babel.html" target="_blank">The Rice of Babel: The Absurdity of Linux
+            Theming</a>, for more.<br>
+          GNOME also makes developers do double work, as they are so stubborn that they <a
+            href="https://www.youtube.com/watch?v=Kr6JNyXlu9E" target="_blank">don't</a> support standards like
+          server-side decorations, making programs like games not work correctly in GNOME, forcing developers into doing
+          a GNOME-specific implementation.
+        </p>
+        <p>
+          Another problem is that due to GNOME's lack of features, users are forced to use unstable and slow extensions
+          that break with each update. Ubuntu has a lot of power inside GNOME, but they are forced to play along with
+          this game, making their product more unreliable as things like your tray icons or panel could just... stop
+          working on a "stable" release in a "stable" distro.<br>
+          Finally, GNOME is bad at programming, and they don't admit that they are bad at programming; instead, they
+          prefer to force their skill issues onto people. Back in 2020, when they were developing the alpha for GTK 4,
+          they found a <a href="https://gitlab.gnome.org/GNOME/gtk/-/issues/2971" target="_blank">critical bug</a> that
+          made scrolling using a touchpad impossible, as the program would have the equivalent of an epilepsy attack,
+          making it impossible to use. 5 years later, multiple core GNOME programs like the file manager use this broken
+          component, and this problem is <a href="https://gitlab.gnome.org/GNOME/gtk/-/issues/5793"
+            target="_blank">still</a> <a href="https://gitlab.gnome.org/GNOME/gtk/-/issues/6344"
+            target="_blank">present</a>. They caught this early in development, but they didn't fix it at the correct
+          time during development. Now you have production-ready laptops that can't scroll correctly on folders with a
+          lot of files. Good job, GNOME.<br>
+          Do I need to say more? Oh wait, the beta for COSMIC doesn't have this issue, and they developed MOST OF THE
+          GRAPHICAL TOOLKIT FROM SCRATCH. Please, avoid GNOME if you care about your sanity. At the very least, wait
+          until they stop being aggressive against the rest of the Linux ecosystem and until they stop their nonsensical
+          political fights, in a software project...
+        </p>
+        <p>
+          Update: Fedora 43 released today. Among the changes made, they prematurely removed GNOME's <a
+            href="https://fedoraproject.org/wiki/Releases/43/ChangeSet#Wayland-only_GNOME" target="_blank">X11
+            session</a> packages from the distro (not just the default install). GNOME was not ready for this, as
+          crucial things like games correctly grabbing your mouse on multi-monitor setups in Wayland are currently <a
+            href="https://gitlab.gnome.org/GNOME/mutter/-/issues/3765" target="_blank">broken</a>. Fedora 43 users can't
+          game thanks to the developers rushing the removal of the X11 session. This forces either Fedora to add the
+          packages again or GNOME to place emergency efforts in patching the bug, among other things broken by a lack of
+          the X11 session.<br>
+          Don't ask me how KDE is able to keep their X11 session working well but GNOME fails horribly, even if they
+          have more contributors than KDE.
+        </p>
+        <h6>Joke, Niche and Atomic distros</h6>
+        <p>
+          You might have seen joke distros like <a href="https://github.com/Amog-OS/AmogOS" target="_blank">AmogOS</a>,
+          they look very funny, but they are not made for you to be using them as your Windows 10 replacement. If
+          anything, it would be better for you to customize your own Linux on a reliable and secure base.<br>
+          The same happens with niche distros. You should be careful with obscure operating systems; you never know what
+          could be compromised. Try to stick to distros that have enough eyes and hands on them to be secure.<br>
+          Finally, avoid Atomic distros. These are some special kinds of Linux that lock down the operating system in
+          order to prevent the user from breaking things. A known example is SteamOS or Bazzite. Atomic distros are
+          useful for products designed to be more limited, like the Steam Deck. If you are using them to replace any
+          normal Linux, you WILL run into problems sooner or later; it's a matter of time until you hit the limiting
+          wall that Atomic distros give you.<br>
+          If you are considering Bazzite or SteamOS as systems for your computer, take a look at CachyOS or Nobara
+          first; they do essentially the same thing but without taking freedoms away from you.
+        </p>
+        <h6>Unupgradable distros</h6>
+        <p>
+          There are a few projects out there that use the stable release strategy, but without the ability to upgrade
+          between major versions of the operating system. What this means is that you have to reinstall the whole system
+          every time you want to update to a mayor version. This is massively inconvenient and thankfully very rare. The
+          only two distros that I know with these release methods are elementaryOS and Bodhi Linux. If you use them,
+          know that upgrading will be a pain.
+        </p>
+        <h5 id="migration"><a href="#migration">Preparing for migration</a></h5>
+        <p>
+          Now that you have decided what Linux to try out, there are a few things you need to know.<br>
+          First, you should experiment with alternatives to Windows programs before you do anything else with Linux. For
+          example, check that your Microsoft Word documents work with LibreOffice in Windows before installing
+          Linux.<br>
+          This gets easier/harder depending on what programs you use, and there are things that have no equivalent. Try
+          to prioritize open-source programs when picking alternatives. Just search "XYZ Program alternative" and that
+          will get you far. You could also try to search how WINE works with the programs you need, but only do that as
+          a last resort. Software availability is the biggest problem in getting people to try out Linux. Take it easy;
+          Rome wasn't built in a day.
+        </p>
+        <p>
+          Second, you should get some form of external storage, be it a USB stick, some kind of SD card, maybe a CD or
+          even an external hard drive in a case. You will use this to install Linux. Make sure that it has at least 4 GB
+          of storage; 8 GB is the recommended minimum. In case your storage has 32 GB or more, you should install <a
+            href="https://www.ventoy.net/en/index.html" target="_blank">Ventoy</a> on it, as you will be able to boot
+          from multiple Linux ISOs from a single storage device. Normally, when you prepare one of the storage devices,
+          it nukes everything on the drive and makes it impossible to use it for anything else than as an installer for
+          the particular distro you installed on it.<br>
+          Thankfully, Linux has support for booting into a Live environment, a read-only copy of the distro of choice.
+          This is massively useful for a lot of tasks, but it's especially good for rescuing files from computers or if
+          you need to use a computer that is not your own (you can take that a step further by installing a read-write
+          Linux into the external storage).<br>
+          In case you don't have any external storage, you can get away with the advanced features that <a
+            href="https://unetbootin.github.io" target="_blank">UNetbootin</a> gives you by using the Hard Disk Install
+          option, but be careful.
+        </p>
+        <p>
+          Third, get familiar with your computer's BIOS/UEFI screens. Search online for your exact laptop or motherboard
+          name with the "BIOS/UEFI" keyword added. When the computer is booting up, try to hit the key they mention; it
+          could be one of the function keys or something else. It will take you to a scary-looking menu that allows you
+          to play around with many options for your hardware.<br>
+          In order to boot up any Linux without problems, you need to disable the Secure Boot option and change the boot
+          order, leaving the drive that contains the Linux in first place.<br>
+          Ah and before shutting down Windows, right before you start the installation, you should hold the Shift key
+          while Windows is shutting down. This will make Windows do a full shutdown instead of doing a fake shutdown
+          thanks to the Fast Startup Windows setting. If you don't do these things, you might have unexpected issues
+          while installing Linux.
+        </p>
+        <p>
+          Fourth, you need backups! You required them yesterday!!! I really hope you had backups before thinking of
+          installing Linux.<br>
+          Okay, for ideal safety, you need to follow the 4 backups rule. 2 on-site, 1 off-site, and 1 in the cloud (or
+          another off-site). This is hard to achieve and expensive, but it's the ideal. Go ask the <a
+            href="https://www.youtube.com/watch?v=PaPotS8GSpc" target="_blank">South Koreans</a> about their backup
+          strategy...<br>
+          For just switching your operating system, you require a full backup of your disk; the hard drive should have
+          at the very least the same capacity as the one installed in your system. Depending on how much free space your
+          disk has, you could maybe just use one disk to do the full switch with some smart partitioning work. Still,
+          the best thing is that you go get yourself a good hard drive; aside from Linux, it will be useful as a first
+          step in a good backup strategy.<br> Before formatting that drive, watch <a
+            href="https://youtu.be/_h30HBYxtws?si=6zkLU2Juidyg8VHo" target="_blank">this</a> video in order to learn
+          what file system to use; it will be an important choice that you might have a hard time reverting later.
+        </p>
+        <h5 id="filesystems"><a href="#filesystems">Disk partitions & file systems</a></h5>
+        <p>
+          Most Linux installers handle file systems for you; they give you a nice and understandable interface with some
+          default options. Mainly some variation of wiping the disk or partitioning it in half (a dual-boot setup, half
+          Windows, half Linux). However, it's not uncommon for this automatic detection to break, throwing new users
+          headfirst into figuring out file systems in an already alien environment. This is especially common for those
+          who want to dual boot.
+        </p>
+        <p>
+          Thankfully, it is easy to trick the installers into doing all the heavy lifting for you in dual-boot
+          scenarios; all you need is to leave an empty partition of your desired size, and the magic will happen.<br>
+          If the installer of your distro fails to recognize what to do, open the disk manager program; it could be
+          GParted, GNOME Disks, or KDE Partition Manager. On there, you will see something like this:
+        </p>
+        <img class="img-resize" src="/media/gparted-main-window.png" title="Main window of GParted"
+          alt="Main window of GParted">
+        <p>
+          See that big bar? That's your system's main partition. After you unmount the partition, you will need to
+          resize that big bar, leaving unallocated space to the right of the main partition.<br>
+          The system installer will use that empty space to infer that you want to use that space to install the distro.
+          Do this just in case the installer acts like an idiot.<br>
+          <b>Remember that file operations of this caliber can delete all your files; be careful.</b>
+        </p>
+        <p>
+          One of, if not the best tools for real backups is <a href="https://rsync.samba.org" target="_blank">rsync</a>.
+          Thanks to its smart incremental method of copying files, it can do a backup without writing unnecessary
+          information, because it typically only copies the things that changed since the last operation.<br>
+          Rsync is a CLI program, but it has popular frontend programs like <a
+            href="https://github.com/linuxmint/timeshift" target="_blank">Timeshift</a> or <a
+            href="https://github.com/bit-team/backintime" target="_blank">Back In Time</a>. To understand more about how
+          to use rsync, check out these videos:
+        <ul class="square">
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=eifQI5uD6VQ" target="_blank" title="Bread on Penguins"
+                alt="Bread on Penguins">a brief guide to rsync ~ Bread on Penguins</a></li>
+            <li><a href="https://www.youtube.com/watch?v=QKCIi-NxJEo" target="_blank" title="Veronica Explains"
+                alt="Veronica Explains">Using rsync for backups, because it's not shiny and new ~ Veronica Explains</a>
+            </li>
+          </ul>
+        </ul>
+        </p>
+        <p>
+          Some file systems, like BTRFS, give you the ability to create snapshots of the system. These are some smart
+          behind-the-scenes tricks that allow you to restore the system to a previous state. This advanced feature is
+          not available on most distros out of the box; only a few, like CachyOS or OpenSUSE, give you this power
+          without any setup from the user. Others, like Fedora, ship with BTRFS but without the snapshot feature turned
+          on. It is painful to set up BTRFS manually to enable snapshots, so consider that before picking your distro.
+        </p>
+        <h5 id="cli"><a href="#cli">The Command Line is your friend</a></h5>
+        <p>
+          Now, if you happen to have some major problem down the road in your Linux of choice, the most likely solution
+          will be found in a command-line interface. You may ask, what is a command-line interface? Pretty simple.<br>
+          When programmers make their programs, they can pick between showing the user some kind of graphical interface
+          (something that mimics somewhat real button layouts on machinery) or not showing you anything. To be useful,
+          most programs need some form of output, the most basic one being text. Even programs that just live on the
+          computer, without sending anything that the user can see (maybe their work is sending info to another
+          program), still use a text output in some way.<br>
+          For a very long time, computers were restricted to this basic form of interface (text). Linux originated
+          during this era, and we still have the legacy of the command line among us today. However, old doesn't mean
+          obsolete. There are a ton of programs and ways of working that benefit from this style of interface.
+        </p>
+        <p>
+          The CLI is useful due to how simple it is. All that you need to do is to type the right commands (the
+          equivalent of clicking on things and hitting enter), and stuff will happen. For example, the Linux app stores
+          usually have a text version; the names vary depending on what Linux you are using, but it can be called apt,
+          dnf, pacman, etc.<br>
+          An example command: if you need to update your system on Ubuntu-based distributions, you would do:<br>
+        <blockquote>sudo apt update && sudo apt upgrade</blockquote>
+        What that does is: contacting the server apt uses && (and) download and install available updates that apt
+        found.<br>
+        That is just a common example; you might want to check out this video to learn more:<br>
+        <a href="https://www.youtube.com/watch?v=s3ii48qYBxA" target="_blank" title="DistroTube"
+          alt="DistroTube">Beginner's Guide To The Linux Terminal ~ DistroTube</a><br>
+        Another way of getting information about CLI programs is by running the <b>man</b> command in order to see a
+        program's manual. You also have the fancier <a href="https://tealdeer-rs.github.io/tealdeer/"
+          target="_blank">tldr</a>, which makes the man information more digestible.
+        </p>
+        <p>
+          The point is, the CLI is your friend. It will surprise you to learn just how far we pushed the humble
+          terminal. To start, just search <b>terminal</b> on your Linux's graphical program searcher and start playing!
+          One more thing, terminal programs rarely have mouse support; you will have to type a lot.<br>
+          Oh, and there are some helper programs that make the default text interface behave nicer; make sure to check
+          out <a href="https://fishshell.com" target="_blank">fish</a> and <a href="https://ohmyz.sh" target="_blank">Oh
+            My Zsh</a>. Time to start playing!
+        </p>
+        <h5 id="software"><a href="#software">Managing software & updates</a></h5>
+        <p>
+          Tell me, do you know why Windows 10 getting discontinued affects users, even if it still works perfectly fine
+          on any machine that has it installed after the discontinuation date? The software doesn't get updated. You
+          don't get new features, and most importantly, <b>you don't get security updates</b>.<br>
+          That leaves you open to all kinds of evil people doing funky things with your computer without permission and
+          without pretending they aren't doing those things (I am looking at you, Windows Mac).<br>
+          Linux's security is truly reliant on software updates. Instead of an antivirus running in the background, you
+          need to keep your programs updated and hope they outpace the malware developers in fixing vulnerabilities
+          before they can try hacking into your system. This method is surprisingly effective; otherwise, we wouldn't
+          have most of the internet running off of Linux machines.
+        </p>
+        <p>
+          There are two ways of managing software in Linux; the first one is with a CLI interface. Thankfully, Arch
+          Linux did the heavy lifting for me; in <a href="https://wiki.archlinux.org/title/Pacman/Rosetta"
+            target="_blank">here</a> you can find a ton of useful commands that will allow you to understand how to
+          manage your software via the CLI, regardless of what Linux you are using.<br>
+          Graphical interfaces for managing software usually just run those commands behind the scenes, but with extra
+          nice things like seeing the icon, description, and some screenshots of whatever program you want to install.
+          The interesting thing comes when we distance ourselves from the normal package managers distros use.
+        </p>
+        <p>
+          The normal thing is having the distribution manage software for you, but there are multiple third party
+          package managers that get Linux software to another level. These tools work by placing all necessary pieces of
+          the program into a container. What this does is make the program available anywhere that has the third-party
+          store installed, allowing developers to distribute the programs to their users in an easier way, with the only
+          downside being the programs taking up more hard drive space.<br>
+          There are two main third-party containerized package managers, <a href="https://flatpak.org"
+            target="_blank">Flatpak</a> and <a href="https://snapcraft.io" target="_blank">Snap</a>.<br>
+          I will not be focusing on Snap because I think its existence is unnecessary.<br>
+          Flatpak is pretty useful, it allows you to have the latest versions of the software, directly from the
+          developer, but it has some drawbacks. Mainly, it will prevent you from doing things and the programs from
+          working correctly due to the containerization of the software. They label it as a security feature, but it has
+          been proven that it's quite easy to bypass. This "feature" might obstruct programs from getting correctly <a
+            href="https://itsfoss.com/flatpak-app-apply-theme/" target="_blank">themed</a> or by restricting access to
+          the file system, making some programs unable to find files and folders. Thankfully, you can bypass that
+          restriction with the <a href="https://flathub.org/en/apps/com.github.tchx84.Flatseal"
+            target="_blank">Flatseal</a> program, but only use it for that if you really need it.
+        </p>
+        <p>
+          <a href="https://appimage.org" target="_blank">AppImages</a> also exist. They do the same trick of shipping
+          everything the program needs, but without the ability to get updated by a server (Flatpak has an update
+          command) and without containerization. It's a cool technology, but you should treat it as the last option
+          before compiling.
+        </p>
+        <p>
+          Now, for some updating tricks. Always do your backups before updating. Then, don't install software without
+          updating, as it can make your system perform a <a href="https://wiki.garudalinux.org/en/partial-upgrade"
+            target="_blank">partial upgrade</a>, this error could prove deadly. You should also try to keep the power of
+          the computer running if it's updating the Linux Kernel itself, as the system can become unbootable if that
+          process gets interrupted.<br>
+          Talking about the kernel, you should keep multiple versions installed in your system. Some, like
+          Fedora/Ultramarine, save old versions for a while. Others, like ones based on Arch or Ubuntu, give you
+          multiple kernels that you can pick from in their software stores.
+        </p>
+        <p>
+          Last but not least, things like drivers or codecs could hide in plain sight inside the repositories of
+          software available to your distro. Make sure to check the documentation for drivers/codecs for your hardware
+          and distribution. For example, few distributions install the full <a
+            href="https://en.wikipedia.org/wiki/Vulkan" target="_blank">Vulkan drivers</a> out of the box, or many fail
+          to install complete support for compressed files, like <a
+            href="https://askubuntu.com/questions/592945/failing-to-unrar-files" target="_blank">Ubuntu</a>. There are
+          also some more dangerous (but very useful) third-party repositories for distributions, like <a
+            href="https://launchpad.net/ubuntu/+ppas" target="_blank">PPAs</a> in Ubuntu, <a
+            href="https://rpmfusion.org" target="_blank">RPM Fusion</a> and <a href="https://terra.fyralabs.com"
+            target="_blank">Terra</a> on Fedora, and the <a href="https://aur.archlinux.org" target="_blank">AUR</a> and
+          <a href="https://aur.chaotic.cx" target="_blank">Chaotic AUR</a> on Arch Linux.
+        </p>
+        <h5 id="help"><a href="#help">Asking for help</a></h5>
+        <p>
+          It's normal to hit a wall from time to time, and you should ask for help. Linux is a community effort. Most
+          distributions have learning resources, forums, and group chats that you can reach out to in times of need.<br>
+          You have to remember that the most important thing before asking for help is that you try to figure it out
+          yourself. Most programs that fail give you some kind of error message; you could search the error it gives you
+          online and see if anybody else had the same thing.<br>
+          Another significant action is to search in the program's existing bug reports; maybe it was already fixed, and
+          all you need to do is to update. And if you have no other choice but to ask someone for help, try to give them
+          a detailed description of what went wrong, alongside your basic hardware information (what a program like
+          fastfetch gives to you, alongside what versions in particular of the software you are running). One more
+          thing: you should remember that "this works on my machine" is a very common thing; each setup is unique. You
+          might have the same model as somebody else, but yours could have faulty memory, for example. Expecting
+          software to behave properly is like asking a pig to fly.
+        </p>
+        <p>
+          As time goes on and your Linux knowledge grows, you should try to help people, be they friends, family, or
+          online strangers. The important thing is that the cycle of helping each other has to continue. This is what
+          FOSS and Linux should be: helping each other.
+        </p>
+        <h5 id="conclusion"><a href="#conclusion">Conclusion</a></h5>
+        <p>
+          It's too early to tell what will happen next in the world of computers. What is certain is that Windows 10 is
+          dead and we will have to deal with it.
+        </p>
+        <img class="img-resize" src="/media/win-dead.jpeg" title="https://x.com/Win10EoS/status/1977992775242334640"
+          alt="https://x.com/Win10EoS/status/1977992775242334640">
+        <p>
+          With this article, I am just trying to make the dream of more free, private, and sustainable computing closer
+          to a reality, but nothing will change the fact that Microsoft just did something truly horrible. Unlike other
+          versions that had around 15% when they got the EOL, Windows 10 still has around 40% of market share among
+          operating systems, and the number of people left in the dust with this EOL is shocking.<br>
+          I am also a bit shocked about how few creators used this circumstance to do a video; the biggest one so far
+          was Michael MJD and Rob Braxman Tech's <a href="https://www.youtube.com/watch?v=C44iCr6czAo"
+            target="_blank">video</a>, I was expecting something from LTT or more mainstream technology authors, but
+          mostly radio silence outside of Linux spaces.<br>
+          I wonder, what will happen to the market share of Windows 10 in the coming days? Will there be any big, bad,
+          nasty, massive attacks? What reports will we get from recyclers and market sellers?
+        </p>
+        <p>
+          I hope this article was helpful. If you have any doubts about Linux or suggestions to make this article
+          better, <a href="/about/socials.html" target="_blank">let me know</a>.<br>
+        </p>
+        <p>
+          See you later!
+        </p>
+        <img class="img-resize" src="/media/sailor-moon-smile.gif" title="Yes, I reused the GIF, so what?"
+          alt="Yes, I reused the GIF, so what?">
+      </section>
+    </main>
+  </div>
+  <!-- Add any additional Javascript code (<script></script>) here. -->
+</body>
+
+</html>
