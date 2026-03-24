@@ -18,6 +18,15 @@ function loadLayoutByPetraPixel() {
         newScript.src = visitorMap.src;
         visitorMap.parentNode.replaceChild(newScript, visitorMap);
     }
+
+    const lastfm = document.getElementById("lastfm-widget");
+    if (lastfm) {
+        const newLastfmScript = document.createElement("script");
+        newLastfmScript.type = "text/javascript";
+        newLastfmScript.id = "lastfm-widget";
+        newLastfmScript.textContent = lastfm.textContent;
+        lastfm.parentNode.replaceChild(newLastfmScript, lastfm);
+    }
     giveActiveClassToCurrentPage();    
 }
 
@@ -82,6 +91,36 @@ function headerHTML() {
 <!-- RIGHT SIDEBAR -->
 <!-- =============================================== -->
 <aside class="right-sidebar" id="serif">
+  <div id="listening"></div>
+    <script id="lastfm-widget" type="text/javascript">
+      const USERNAME = "LuckiestVenus";
+
+      const BASE_URL = "https://lastfm-last-played.biancarosa.com.br/" + USERNAME + "/latest-song";
+
+      const getTrack = async () => {
+          try {
+              const request = await fetch(BASE_URL);
+              const json = await request.json();
+              const track = json.track;
+
+              const isPlaying = track['@attr']?.nowplaying || false;
+              const statusText = isPlaying ? "Luckiest Venus is listening:" : "Luckiest Venus last listened:";
+
+              document.getElementById("listening").innerHTML =
+                  '<img src="' + track.image[1]['#text'] + '" style="max-width:100%; border-radius:8px; display:block; margin-bottom:8px;">' +
+                  '<div id="trackInfo" style="margin-top:8px;">' +
+                      '<small style="opacity:0.7; display:block; margin-bottom:4px;">' + statusText + '</small>' +
+                      '<h3 id="trackName" style="margin:0; font-size:1.2em;">' + track.name + '</h3>' +
+                      '<p id="artistName" style="margin:0; opacity:0.9;">' + track.artist['#text'] + '</p>' +
+                  '</div>';
+          } catch (e) {
+              document.getElementById("listening").innerHTML = '<p style="opacity:0.7; font-size:1.0em;">No recent tracks yet...</p>';
+          }
+      };
+
+      getTrack();
+      setInterval(getTrack, 10000);
+    </script><br>
   <div class="sidebar-section">
     <div class="sidebar-title">About<img class="img-resize" src="/media/pearto64.png"></div>
     <ul>
