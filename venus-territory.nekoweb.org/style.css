@@ -686,7 +686,17 @@ main h6 {
 /* -------------------------------------------------------- */
 /*  MISC */
 
-
+#statuscafe {
+    padding: .5em;
+    background-color: var(--blockquote-color);
+    border: var(--border);
+}
+#statuscafe-username {
+    margin-bottom: .5em;
+}
+#statuscafe-content {
+    margin: 0 1em 0.5em 1em;
+}
 
 /* -------------------------------------------------------- */
 /*  FONTS */

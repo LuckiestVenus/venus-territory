@@ -21,9 +21,11 @@
     <main id="content">
       <section id="serif">
         <h1>Welcome to Venus Territory!</h1>
-        <iframe height="120" id="schemeText" class="notice" aria-live="polite" frameborder="0"
-          title="Status.Cafe Status"></iframe>
-        <script src="/scripts/status.js?nochache=1"></script>
+        <div id="statuscafe">
+          <div id="statuscafe-username"></div>
+          <div id="statuscafe-content"></div>
+        </div>
+        <script src="https://status.cafe/current-status.js?name=luckiest_venus" defer></script>
         <p>
           <img class="img-resize" src="/media/new03.gif" alt="New!" title="New!"> 03/03/2026: Added more
           buttons and links to <a href="/projects/resources.html" target="_blank">Resources</a> and some
