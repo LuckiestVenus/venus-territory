@@ -14,15 +14,15 @@
     border-radius: 8px;
     color: #575279;
     background-color: #faf4ed;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: strong;
 }
 
 .site-box > a > p {
     color: #575279;
     font-weight: bold;
-    font-size: 16px;
-    background-color: ;
+    font-size: 12px;
+    background-color: #faf4ed;
 }
 .site-box > a > span {
     color: #575279;
