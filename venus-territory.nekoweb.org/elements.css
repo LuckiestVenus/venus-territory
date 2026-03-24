@@ -14,14 +14,14 @@
     border-radius: 8px;
     color: #575279;
     background-color: #faf4ed;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: strong;
 }
 
 .site-box > a > p {
     color: #575279;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     background-color: #faf4ed;
 }
 .site-box > a > span {
