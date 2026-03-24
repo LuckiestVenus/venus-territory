@@ -690,6 +690,8 @@ main h6 {
     padding: .5em;
     background-color: var(--blockquote-color);
     border: var(--border);
+    border-radius: var(--round-borders);
+    
 }
 #statuscafe-username {
     margin-bottom: .5em;

@@ -10,6 +10,15 @@ function loadLayoutByPetraPixel() {
     if (!mainEl) return;
     mainEl.insertAdjacentHTML("beforebegin", headerHTML());
     mainEl.insertAdjacentHTML("afterend", footerHTML());
+
+    const visitormap = document.getElementById("mapmyvisitors-placeholder");
+    if (visitormap) {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.id = "mapmyvisitors";
+        script.src = "//mapmyvisitors.com/map.js?d=CM88vp0PHGj7Seob8zZ9h0hZkXljPsbtLskTVns1aTM&cl=ffffff&w=a";
+        placeholder.parentNode.replaceChild(script, visitormap);
+    }
     giveActiveClassToCurrentPage();
 }
 
@@ -224,7 +233,7 @@ function headerHTML() {
         <a href="https://neocities.org/" target="_blank" title="THE WEB IS STILL YOURS"><img class="img-resize" src="/media/neocities-vaporwave.gif" alt="THE WEB IS STILL YOURS"></a>
         <a href="https://laingame.net/" target="_blank" title="Powered by NAVI!"><img class="img-resize" src="/media/powernavibadge.jpg" alt="Powered by NAVI!"></a>
       </h4>
-      <a href='https://mapmyvisitors.com/web/1bzqt'  title='Visit tracker'><img src='https://mapmyvisitors.com/map.png?cl=ffffff&w=a&t=m&d=Li11-OQfVg7ghMsbHX6GXY5R0fDcjpLRLDfKPHBHr-w&co=2d78ad&ct=ffffff'/></a>
+      <div id="mapmyvisitors-placeholder"></div>
     </div>
   </div>
 </aside>
