@@ -187,7 +187,9 @@ function headerHTML() {
   <div class="sidebar-section">
   <div class="sidebar-title">Link Me!<img class="img-resize" src="/media/tetobanana64.png"></div>
   <div align="center">
-    <h4><a href="https://venus-territory.nekoweb.org/" target="_blank" title="Venus Territory"><img src="/media/venus-territory-rose.png" alt="Venus Territory"></a></h4>
+    <h4><a href="https://venus-territory.nekoweb.org/" target="_blank" title="Venus Territory"><img src="/media/venus-territory-rose.png" alt="Venus Territory"></a>
+    <br> 
+    <a href="https://nekoweb.org/follow/venus-territory.nekoweb.org" target="_blank">Follow me on Nekoweb!</a></h4>
     <br>
   </div>
   <div class="sidebar-section">
