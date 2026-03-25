@@ -729,6 +729,18 @@ main h6 {
     color: var(--link-color-hover);
 }
 
+#follow-frame {
+    background: var(--blockquote-color);
+    border: var(--border);
+    border-radius: var(--round-borders);
+    font-family: var(--font);
+    margin: 10px auto 0px auto;
+    max-width: 15rem;
+    padding: 0.75rem;
+
+
+}
+
 /* -------------------------------------------------------- */
 /*  FONTS */
 
