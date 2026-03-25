@@ -12,21 +12,30 @@ function loadLayoutByPetraPixel() {
     mainEl.insertAdjacentHTML("afterend", footerHTML());
     const visitorMap = document.getElementById("mapmyvisitors");
     if (visitorMap) {
-        const newScript = document.createElement("script");
-        newScript.type = "text/javascript";
-        newScript.id = "mapmyvisitors";
-        newScript.src = visitorMap.src;
-        visitorMap.parentNode.replaceChild(newScript, visitorMap);
+        const newVisitorMap = document.createElement("script");
+        newVisitorMap.type = "text/javascript";
+        newVisitorMap.id = "mapmyvisitors";
+        newVisitorMap.src = visitorMap.src;
+        visitorMap.parentNode.replaceChild(newVisitorMap, visitorMap);
     }
 
-    const lastfm = document.getElementById("lastfm-widget");
-    if (lastfm) {
+    const lastfmScript = document.getElementById("lastfm-widget");
+    if (lastfmScript) {
         const newLastfmScript = document.createElement("script");
         newLastfmScript.type = "text/javascript";
         newLastfmScript.id = "lastfm-widget";
-        newLastfmScript.textContent = lastfm.textContent;
-        lastfm.parentNode.replaceChild(newLastfmScript, lastfm);
+        newLastfmScript.textContent = lastfmScript.textContent;
+        lastfmScript.parentNode.replaceChild(newLastfmScript, lastfmScript);
     }
+
+    const aeroDiv = document.getElementById("aero-ring");
+    if (aeroDiv) {
+        const aeroScript = document.createElement("script");
+        aeroScript.type = "text/javascript";
+        aeroScript.src = "https://frutigeraeroarchive.org/javascript/aero-webring.js";
+        aeroDiv.appendChild(aeroScript);
+    }
+
     giveActiveClassToCurrentPage();    
 }
 
@@ -271,6 +280,9 @@ function headerHTML() {
         <a href="https://neocities.org/" target="_blank" title="THE WEB IS STILL YOURS"><img class="img-resize" src="/media/neocities-vaporwave.gif" alt="THE WEB IS STILL YOURS"></a>
         <a href="https://laingame.net/" target="_blank" title="Powered by NAVI!"><img class="img-resize" src="/media/powernavibadge.jpg" alt="Powered by NAVI!"></a>
       </h4>
+
+      <div id="aero-ring"></div><br>
+
       <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=CM88vp0PHGj7Seob8zZ9h0hZkXljPsbtLskTVns1aTM&cl=ffffff&w=a"></script>
     </div>
   </div>

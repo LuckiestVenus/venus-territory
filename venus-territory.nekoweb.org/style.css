@@ -271,7 +271,7 @@ footer {
 
 footer a,
 footer a:visited {
-    color: var(--link-color);
+    color: var(--link-color-visited);
 }
 
 footer a:hover,
@@ -691,13 +691,42 @@ main h6 {
     background-color: var(--blockquote-color);
     border: var(--border);
     border-radius: var(--round-borders);
-    
+
 }
+
 #statuscafe-username {
     margin-bottom: .5em;
 }
+
 #statuscafe-content {
     margin: 0 1em 0.5em 1em;
+}
+
+#aero-ring {
+    background: var(--blockquote-color);
+    border: var(--border);
+    border-radius: var(--round-borders);
+    font-family: var(--font);
+    margin: 10px auto 0px auto;
+    max-width: 15rem;
+    padding: 0.75rem;
+
+
+}
+
+#aero-ring a,
+#aero-ring a:visited {
+    color: var(--link-color-visited);
+}
+
+#aero-ring a:link {
+    color: var(--link-color);
+}
+
+#aero-ring a:focus,
+#aero-ring a:hover,
+#aero-ring a:active {
+    color: var(--link-color-hover);
 }
 
 /* -------------------------------------------------------- */
